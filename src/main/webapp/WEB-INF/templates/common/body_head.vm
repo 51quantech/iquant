@@ -1,0 +1,61 @@
+	<!-- HEADER BEGIN -->
+
+    <nav class="navbar navbar-dark #if($!model=="help") navbar-static-top #else navbar-fixed-top #end">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!--<a class="navbar-brand" href="/">QUANTI</a>-->
+          <a class="navbar-brand" href="/"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-nav">
+            <li #if($!menu == "data") class="active" #end ><a href="/help/data.html#top">数据</a></li>
+            <li #if($!menu == "strategy") class="active" #end ><a href="/lab/lab_index.html">我的策略</a></li>
+            <li class="dropdown #if($!menu == "help") active #end">
+            	<a href="#" data-toggle="dropdown" class="dropdown-toggle">帮助<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+					<li #if($!bar == "_guide") class="active" #end >
+                    	<a href="/help/guide.html">用户引导页</a>
+                    </li>
+                	<li #if($!bar == "_api") class="active" #end >
+                    	<a href="/help/api.html">常用API文档</a>
+                    </li>
+                </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-nav-right">
+            <!--<li class="divider"></li>-->
+            <li class="dropdown #if($!menu == "login") active #end">
+            	#if($!webHelper.getLoginViewPin())
+            	<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            		$!webHelper.getLoginViewPin()
+            		<b class="caret"></b>
+            	</a>
+            	<ul class="dropdown-menu">
+            		<li>
+            			<a href="/lab/lab_password.html">修改密码</a>
+            		</li>
+					<li>
+            			<a href="/logout.html">安全退出</a>
+            		</li>
+            	</ul>
+            	#else
+            	<a href="/login.html"  class="loginbt">
+            		<!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>-->
+            		登录
+            	</a>
+            	#end
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+	<!-- HEADER END -->
+    

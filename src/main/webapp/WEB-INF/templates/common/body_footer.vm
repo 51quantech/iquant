@@ -1,0 +1,33 @@
+	<!-- FOOTER BEGIN -->
+
+	<!-- JAVASCRIPTS START -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/libs/js/jquery-1.11.3.min.js"></script>
+    <script src="/libs/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/libs/js/bootstrap.min.js"></script>
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/libs/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- Bootstrap datetimepicker -->
+    <script src="/libs/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/libs/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    
+    #if($!menu == "help")
+    <script src="/libs/js/docs.js"></script>
+    #end
+
+    #if($!menu == "strategy")
+    <script src="/libs/js/common/custom.js"></script>
+    #end
+
+    <script src="/libs/layer/layer.js"></script>
+
+	<!-- JAVASCRIPTS END -->
+	
+	$!{scriptHtml}
+	
+	<!-- FOOTER END -->

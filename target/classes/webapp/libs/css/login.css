@@ -1,0 +1,138 @@
+@charset "utf-8";
+/*新版登录注册样式*/
+body{
+	background-color: #fff;
+}
+.navbar{
+	margin-bottom: 0px;
+}
+.quanti_header{
+	position: relative;
+	width: 100%;
+	height: 350px;
+	background-color: #0b58af;
+	top: -20px;
+}
+.content_box{
+	position: relative;
+	z-index: 1;
+}
+.input-group-lg > .form-control, .input-group-lg > .input-group-addon{
+	height: 56px;
+	padding: 10px 15px 10px 60px;
+	border-radius: 0px;
+	z-index: 1;
+	outline: none;
+}
+.input-group-lg > .form-control{
+	border-color: #b3b3b3;
+}
+.input-group-lg > .input-group-addon{
+	width: 60px;
+}
+.login-wrap {
+	font-size: 16px;
+	color: #333333;
+	width: 430px;
+	margin: -250px auto 0 auto;
+	padding: 66px;
+	position: relative;
+	background-color: #fff;
+	box-shadow: 0 0 5px rgba(0,0,0,.09);
+	display: table;
+	z-index: 1;
+	border-radius: 3px;
+}
+/*change login tab style*/
+.nav-tabs{
+	margin-bottom: 30px;
+	border-color: #d6d6d6;
+	border: 0px;
+}
+.nav-tabs > li{
+	width: 50%;
+}
+.nav-tabs > li > a{
+	width: 100%;
+	color: #333;
+	text-align: center;
+	padding: 10px 0px;
+	border: 0px;
+	border-bottom: 1px solid #d6d6d6;
+}
+.nav > li > a:hover, .nav > li > a:focus{
+	background-color: #fff;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	color: #0b58af;
+	border: 0px;
+	border-bottom: 1px solid #0b58af;
+	border-radius: 0px;
+}
+.login-wrap .input-group {
+  margin-bottom: 30px;
+  width: 100%;
+  border: 1px solid #b3b3b3;
+  border-radius: 3px;
+}
+/*输入框*/
+.input-group-addon{
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	border-radius: 0px;
+	background-color: #fff;
+	border: 0px;
+	background-color: #fff;
+	height: 56px;
+	padding: 10px 0px 10px 60px;
+	text-align: left;
+}
+.inputimg{
+	position: absolute;
+	top: 14px;
+	left: 14px;
+	z-index: 99;
+}
+.email{
+	background:url(../images/login/email.png) no-repeat 15px center;
+}
+.password{
+	background:url(../images/login/password.png) no-repeat 15px center;
+}
+.pwyes{
+	background:url(../images/login/pwyes.png) no-repeat 15px center;
+}
+/*button-style*/
+.login-wrap .btn-wrap{
+	padding: 0px;
+	width: 100%;
+	height: 56px;
+}
+.login-wrap .btn-wrap a {
+	font-size: 12px;
+	color: #1d77dd;
+	line-height: 56px;
+	text-align: left;
+}
+.login-wrap .btn-wrap button {
+	background: #1d77dd;
+	color: #fff;
+	width: 100%;
+	font-size: 16px;
+	letter-spacing: 4px;
+	border-radius: 0px;
+	height: 56px;
+	padding: 10px 12px;
+	text-align: center;
+	border: none;
+	outline: none;
+}
+h1{
+	width:100%;
+	font-size: 36px;
+	color: #333333;
+	text-align: center;
+	line-height: 36px;
+	margin-bottom: 40px;
+}

@@ -1,0 +1,82 @@
+
+<div style="padding: 0 15px;">
+
+	<div class="row">
+	<div class="col-md-12" role="main">
+        <ul style="list-style:none;">
+        	<li>
+            	<h3>1.QUANTI新用户引导</h3>
+                <p>欢迎使用QUANTI进行量化分析体验，您想要的所有金融研究都可在这里实现~</p>
+                <p>以下内容将简单向您讲解<strong>QUANTI平台</strong></p>
+                <ul  style="list-style:none;">
+                	<li><strong>1.策略列表：</strong>包含您所创建的所有策略。</li>
+                    <li><strong>2.新用户引导：</strong>引导用户使用该平台的入口。</li>
+                    <li><strong>3.编辑代码策略：</strong>大牛向这儿看~~~纯代码编辑环境，大牛们的最爱。</li>
+                    <li><strong>4.使用策略生成器：</strong>策略生成器能够在无代码环境中帮助您快速高效创建主题策略。</li>
+                    <li><p><img src="../../libs/images/newuser/new01.png"/><p></li>
+                    <li><p><strong>5.策略列表展示区域：</strong>默认收起</p>
+                    	<ul>
+                        	<li><span class="na redfont">5-1</span>新建以UntitleX命名的空白策略，存在策略列表中</li>
+                            <li><span class="na redfont">5-2</span>策略默认名称</li>
+                            <li><span class="na redfont">5-3</span>点击可修改策略名称</li>
+                            <li><span class="na redfont">5-4</span>删除该策略</li>
+                            <li><span class="na redfont">5-5</span>新手引导页默认存在于策略列表中，并且只读，不可编辑</li>
+                            <li><span class="na redfont">5-6</span>点击收起策略列表区域</li>
+                        </ul>
+                     </li>
+                     <li><p><img src="../../libs/images/newuser/new02.png"/></p></li>
+                </ul>
+            </li>
+            <li>
+            
+            	<h3>2.编辑策略</h3>
+                <p>策略是贯穿整个量化平台的重中之重，这里将简单介绍如何从空白策略进阶到复杂逻辑策略。</p>
+                <p><strong>策略编辑器易于新手上路，所以从策略编辑器说起</strong></p>
+                <ul>
+                	<li><span class="na">使用策略生成器</span>入口在“我的策略”模块中
+                        <p><img src="../../libs/images/newuser/new03.png"/></p>
+                    </li>
+                    <li>
+                    	<p><strong>第一步：设置基本参数:</strong></p>
+                        <p>策略生成器结构分为：<strong>1-主题投资组合调仓</strong><span class="grayfont">（策略参数设置区域）</span>；<strong>2-策略代码预览</strong><span class="grayfont">（策略代码自动生成区域）</span>。</p>
+                        <p>1-1为策略基本参数选择区域；基本参数包括：起始日期，结束日期，初始资金和调仓频率。</p>
+                        <p>1-2为按钮区域，选定参数后，进行“下一步”。</p>
+                        
+                        <p><img src="../../libs/images/newuser/new04.png"/></p>
+                    </li>
+                    <li>
+                    	<p>第二步：选择主题，设置股票池</p>
+                        <p>1-1：给出系统中含有的所有热门主题（将股票分类为不同的主题）</p>
+                        <p>1-2：添加股票（平台支持股票模糊搜索，可通过股票名称或代码进行指定股票的添加）</p>
+                        <p>1-3：股票权重分配（股票名称+股票权重+剩余可用权重）</p>
+                        <p>1-4：按钮区域，确定参数后，点击“创建主题策略”</p>
+                        <p><img src="../../libs/images/newuser/new05.png"/></p>
+                        <p>下图为选定股票后的参考例子</p>
+                        <p><img src="../../libs/images/newuser/new06.png"/></p>
+                        <p>点击<button>创建主题策略</button>，得到代码策略，见下图</p>
+                        <p><strong>代码策略</strong>分为左侧右侧两部分：</p>
+                        <p><strong>1：代码编辑区域；</strong></p>
+                        <p>1-1：策略名称</p>
+                        <p>1-2：策略工具栏（保存：ctrl+s;&nbsp;&nbsp;运行：ctrl+Enter&nbsp;&nbsp;全屏）</p>
+                        <p>1-3：代码区域</p>
+                        <p><strong>2：代码运行结果查看区域</strong></p>
+                        <p>2-1：运行结果工具栏（回测详情：策略各指数的详细数据展示；&nbsp;&nbsp;参赛：分享策略参加策略排行榜）</p>
+                        <p>2-2：策略运行结果展示区域</p>
+                        <p><img src="../../libs/images/newuser/new07.png"/></p>
+                        <p>策略编辑区域支持代码补全功能，能大大提高您创建代码策略的效率和准确性</p>
+                        <p><img src="../../libs/images/newuser/new09.png"/></p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+            	<h3>3.策略运行以及回测</h3>
+                <p>回测信息包括：策略概况，调仓记录，持仓记录，输出日志，详细配置，收益率，阿尔法，贝塔，夏普比率，收益波动率，信息比例，最大回撤等信息。</p>
+                <p><img src="../../libs/images/newuser/new08.png"/></p>
+            </li>
+        </ul>
+        
+
+    </div>
+    </div>
+</div><!-- /.container -->
+    

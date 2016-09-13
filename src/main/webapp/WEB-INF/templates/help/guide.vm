@@ -1,0 +1,258 @@
+#set($layout="layout/default_help.vm"))
+#set($menu="help")
+#set($bar="api")
+#define($cssHtml)
+<link href="$homeModule.getTarget("/libs/css/patch.css")" rel="stylesheet" type="text/css">
+#end
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" role="complementary">
+      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix ">
+        <ul class="nav bs-docs-sidenav">
+          
+          <li class="active">
+          	<li>
+            <a href="#whats-included">新用户引导</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included-1">我的策略简介</a></li>
+              <li><a href="#whats-included-2">拥有我的第一个策略</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included-2-1">神奇的策略生成器</a></li>
+                    <li><a href="#whats-included-2-2">不受限的纯代码编辑</a></li>
+                </ul>
+              </li>
+              <li><a href="#whats-included-3">策略回测</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included-3-1">为什么要回测</a></li>
+                    <li><a href="#whats-included-3-2">在QUANTI怎么回测</a></li>
+                </ul>
+              </li>
+              <li><a href="#whats-included-4">策略参赛</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#whats-included1">数据引导</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included1-1">四类数据之一</a></li>
+			  <li><a href="#whats-included1-2">四类数据之二</a></li>
+              <li><a href="#whats-included1-3">四类数据之三</a></li>
+			  <li><a href="#whats-included1-4">四类数据之四</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#whats-included2">API引导</a>
+          </li>
+          <li>
+            <a href="#whats-included3">参赛引导</a>
+          </li>
+          
+        </ul>
+        <a class="back-to-top" href="#top">
+			 返回顶部
+        </a>
+        
+      </nav>
+    </div>
+    
+	<div class="col-md-9" role="main">
+
+      <div class="bs-docs-section">
+      
+        <h1 id="whats-included" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	新用户引导
+        </h1>
+        <h2 id="whats-included-1">
+        	<a class="anchorjs-link " href="#whats-included-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	我的策略简介
+        </h2>
+        <p>欢迎使用QUANTI<code> 我的策略 </code>功能。QUANTI为您提供python,quartz框架，轻松实现策略回测</p>
+        <p><code> 我的策略 </code>模块，左侧为“策略列表”，右侧入口按钮。如图所示：</p>
+        <img src="/libs/images/newuser/user01.jpg" class="img-responsive" alt="Responsive image"/>
+        <!--策略列表-->
+        <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+            <h4>策略列表</h4>
+            <p>策略列表包含用户创建的所有策略</p>
+            <ul>
+              <li>点击<code> 策略列表图标 </code>，出现具体列表。</li>
+              <li>点击<code> 新建 </code>可以创建以<code> Untitledn </code>命名的空白代码策略。<span class="nt">（点击策略名称，进入代码编辑界面）</span></li>
+              <li>策略列表中可以：<span class="na">重命名策略</span>和<span class="na">删除策略</span></li>
+            </ul>
+            <img src="/libs/images/newuser/user02.jpg" class="img-responsive" alt="Responsive image"/>
+         </div>
+         <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+         	<h4>入口按钮</h4>
+            <ul>
+                <li><span class="nt">新用户引导</span>——引导新用户了解本平台（<span class="s">以只读状态存在于策略列表中</span>）</li>
+                <li><span class="nt">编辑代码策略</span>——代码编辑策略的入口，推荐大牛</li>
+                <li><span class="nt">使用策略生成器</span>——策略生成器入口，推荐新手</li>
+            </ul>
+        	<img src="/libs/images/newuser/user01.jpg" class="img-responsive" alt="Responsive image"/>
+         </div>
+        
+
+
+        <h2 id="whats-included-2">
+        	<a class="anchorjs-link " href="#whats-included-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	拥有我的第一个策略
+        </h2>
+        <p>QUANTI提供两种方式进行策略编辑：</p>
+        <ol>
+        	<li>采用<span class="s">策略生成器</span>编辑无代码简单策略</li>
+            <li>采用<span class="s">代码策略</span>编辑纯代码高逻辑策略</li>
+        </ol>
+        <p>有鉴于策略生成器在使用过程中能够更好的引导新手用户，此处我们优先介绍策略生成器。</p>
+        <h3 id="whats-included-2-1">
+        	<a class="anchorjs-link " href="#whats-included-2-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	神奇的策略生成器
+        </h3>
+        <p>策略生成器能够友好无代码的协助用户进行策略编辑，使用入口在<code> 我的策略 </code>--<code> 使用策略生成器 </code></p>
+        <img src="/libs/images/newuser/user01.jpg" class="img-responsive" alt="Responsive image"/>
+        <h3>策略生成器的工作原理：</h3>
+        <ul>
+        	<li><span class="s">第一步：设置基本参数</span>
+            	<p>基本参数包括：<span class="nt">起始日期</span>、<span class="nt">结束日期</span>、<span class="nt">初始资金</span>和<span class="nt">调仓频率</span></p>
+                <img src="/libs/images/newuser/user08.png" class="img-responsive" alt="Responsive image"/>
+            </li>
+            <li><span class="s">第二步：选择主题，设置股票池</span>
+            	<ol>
+            	<li>按行业内默认划分标准，将不同股票整合为不同主题。按整体收益的涨幅降序排列主题</li>
+                <li>主题选定，列出该主题内的全部股票，（默认最多显示10只），针对每只股分配仓位权重</li>
+                </ol>
+                <img src="/libs/images/newuser/user09.png" class="img-responsive" alt="Responsive image"/>
+                <img src="/libs/images/newuser/user10.png" class="img-responsive" alt="Responsive image"/>
+                <img src="/libs/images/newuser/user11.png" class="img-responsive" alt="Responsive image"/>
+            </li>
+            <li><span class="s">第三步：设置完成，点击<code> 创建主题策略 </code>即可得到您的第一个策略</span></li>
+          </ul>
+         <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+         	<h4>针对跨主题或所有主题内都不包含的股票信息，可以通过搜索指定股票的名称或代码来手动添加</h4>
+            <p>如下图所示：输入“中国”，会出现包含该关键字的所有股票名称及代码</p>
+         </div>
+         <img src="/libs/images/newuser/user12.png" class="img-responsive" alt="Responsive image"/>
+        <div class="bs-callout bs-callout-danger" id="callout-glyphicons-dont-mix">
+			<h4>策略生成器缺点</h4>
+            <ul>
+            	<li>逻辑受限</li>
+                <li>股票数受限</li>
+            </ul>
+            <strong>下面将要介绍的<span class="s">代码编辑策略</span>能够很好的解决以上问题：</strong>
+        </div>
+        <h3 id="whats-included-2-2">
+        	<a class="anchorjs-link " href="#whats-included-2-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	不受限的纯代码编辑
+        </h3>
+        <p>当您对代码结构比较熟练，股票ID等信息掌握时，不妨试试纯代码编辑，能够最大信息量的呈现策略</p>
+        <p>这里使用定制的回测框架，对量化策略进行研究、回测并查看回测结果。</p>
+        <p class="s">代码编辑有两个入口：</p>
+        <ol>
+        	<li>可以通过“编辑代码策略”进入编辑界面
+        		<img src="/libs/images/newuser/user01.jpg" class="img-responsive" alt="Responsive image"/>
+        	</li>
+            <li>也可以通过“新建”空白策略，点击策略名进入编辑界面
+                <img src="/libs/images/newuser/user02.jpg" class="img-responsive" alt="Responsive image"/>
+            </li>
+        </ol>
+        <p class="s">代码策略编辑界面介绍</p>
+        <p>界面分为：</p>
+        <img src="/libs/images/newuser/user03.jpg" class="img-responsive" alt="Responsive image"/>
+        <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+            <h4>代码编辑区域</h4>
+            <p>支持手动输入代码，支持代码的复制粘贴功能，代码提示补全功能</p>
+            <ul>
+                <li>保存：实时的缓存您的策略，避免因未知因素导致代码丢失。快捷键<code> Ctrl+s </code></li>
+                <li>运行：验证策略的收益情况，从不同的角度去分析是否为一个“好的策略”。快捷键<code> Ctrl+Enter </code></li>
+            </ul>
+            <!--<img src="/libs/images/newuser/user04.jpg" class="img-responsive" alt="Responsive image"/>-->
+        </div>
+        <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+            <h4>运行结果区域</h4>
+            <p>从8个角度去量化分析策略运行结果</p>
+            <p>可随意推动时间轴，查看指定时间段内的运行情况</p>
+            <!--<img src="/libs/images/newuser/user05.jpg" class="img-responsive" alt="Responsive image"/>-->
+       	</div>
+        <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+        	<h4>运行日志区域</h4>
+            <p>显示起止时间范围内，股票的调仓情况等日志信息</p>
+        </div>
+        <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+            <h4>资源分配状态显示区域</h4>
+            <p>平台采用docker技术，会分配给用户一定量的内存，此区域显示目前策略的CPU及内存占用比</p>
+            <!--<img src="/libs/images/newuser/user06.jpg" class="img-responsive" alt="Responsive image"/>-->
+        </div>
+        <!--简单的代码策略例子-->
+        
+        <h4 class="s">代码策略分三部分：</h4>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na"></span><span class="c1"># 第一部分：策略参数</span>
+<span class="na">start = '2014-01-01'</span>                      <span class="c1"># 回测起始时间</span>
+<span class="na">end = '2015-01-01'</span>                       <span class="c1"># 回测结束时间</span>
+<span class="na">benchmark = 'HS300'</span>                       <span class="c1"># 策略参考标准</span>
+<span class="na">universe = ['000001.XSHE', '600000.XSHG']</span>        <span class="c1"># 证券池，支持股票和基金</span>
+<span class="na">capital_base = 100000 </span>                     <span class="c1"># 起始资金</span>
+<span class="na">freq = 'd'</span>                             <span class="c1"># 策略类型，'d'表示日间策略使用日线回测，'m'表示日内策略使用分钟线回测</span>
+<span class="na">refresh_rate = 1</span>                         <span class="c1"># 调仓频率，表示执行handle_data的时间间隔，若freq = 'd'时间间隔的单位为交易日，若freq = 'm'时间间隔为分钟</span>
+
+<span class="c1"># 第二部分：初始化策略，回测期间只运行一次，可以用于设置全局变量</span>
+<span class="c1"># account是回测期间的虚拟交易账户，存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、证券的头寸、每日交易指令明细、历史行情数据等。</span>
+<span class="na">def initialize(account): </span>
+    <span class="c1"># account.i = 1</span>
+    <span class="na">pass</span>
+
+<span class="c1"># 第三部分：策略每天下单逻辑，执行完成后，会输出每天的下单指令列表</span>
+<span class="c1"># 这个函数在每个交易日开盘前被调用，模拟每个交易日开盘前，交易策略会根据历史数据或者其他信息进行交易判断，生成交易指令</span>
+<span class="na">def handle_data(account): </span>
+    <span class="c1"># 这里编写下单逻辑</span>
+    <span class="na">return</span>
+</code>
+           </pre>
+        </div>
+        <p>您可以复制以上代码，在该结构基础上进行第一个代码策略的创建</p>
+        
+        <h2 id="whats-included-3">
+        	<a class="anchorjs-link " href="#whats-included-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	策略回测
+        </h2>
+        <h3 id="whats-included-3-1">
+        	<a class="anchorjs-link " href="#whats-included-2-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	为什么要回测
+        </h3>
+        <p>策略中主要具体描述了您投资交易的思路、具体的操作方法，将策略放到历史数据中进行回测检验，能够有效地考察策略在过去进行实践的有效性。</p>
+        <h3 id="whats-included-3-1">
+        	<a class="anchorjs-link " href="#whats-included-2-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	在QUANTI怎么回测
+        </h3>
+        <h4>回测详情</h4>
+        <p>运行成功策略后，可以通过单击策略结果左上方的 “回测详情” 按钮，查看详细回测信息:</p>
+        <img src="/libs/images/newuser/user05.jpg" class="img-responsive" alt="Responsive image"/>
+        <img src="/libs/images/newuser/user07.jpg" class="img-responsive" alt="Responsive image"/>
+        <h2 id="whats-included-4">
+        	<a class="anchorjs-link " href="#whats-included-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	策略参赛
+        </h2>
+        <p>运行成功策略后，可以通过单击策略结果左上方的 “参赛” 按钮，参与策略比拼:</p>
+        <img src="/libs/images/newuser/user05.jpg" class="img-responsive" alt="Responsive image"/>
+
+        <!--数据引导开始-->
+       	<h1 id="whats-included1" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included1" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	数据引导
+        </h1>
+        
+        <!--API引导开始-->
+       	<h1 id="whats-included2" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included1" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	API引导
+        </h1>
+        
+        <!--参赛引导开始-->
+       	<h1 id="whats-included3" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included1" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	参赛引导
+        </h1>
+
+        
+	</div>
+    </div>
+</div><!-- /.container -->
+    

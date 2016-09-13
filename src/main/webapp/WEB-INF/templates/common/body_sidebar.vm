@@ -1,0 +1,29 @@
+
+        <ul id="silder_list" class="nav nav-sidebar">
+            <li class="active">
+                <a href="#" class="tree">
+                    <img src="/libs/images/left_tree01.png">
+                    <p>策略列表</p>
+                </a>
+            </li>
+        </ul>
+		<!--列表项-->
+        <div id="strategy_list" class="navmenu" style="display: none;">
+            <div class="menutool">
+                <a class="toolnormal tool06">新建</a>
+                ##<a class="toolnormal tool07">对比</a>
+            </div>
+            <div class="menu_listall">
+                <div id="menu_list">
+
+                </div>
+                <div>
+                    <div class="menulist">
+                        <input class="checkbox" name="" type="checkbox" value="141">
+                        <a class="menuname" href="/lab/lab_coding_index.html">新手引导页</a>
+                    </div>
+                </div>
+            </div>
+            <div class="packall"></div>
+        </div>
+        <!--列表项结束-->

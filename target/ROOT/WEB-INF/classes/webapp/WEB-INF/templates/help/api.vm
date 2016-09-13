@@ -1,0 +1,1764 @@
+#set($layout="layout/default_help.vm")
+#set($menu="help")
+#set($bar="api")
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" role="complementary">
+      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+        <ul class="nav bs-docs-sidenav">
+          
+          <li class="active">
+          	<li>
+            <a href="#whats-included">QUANTI策略框架简介</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included-1">什么是交易策略</a></li>
+              <li><a href="#whats-included-2">QUANTI策略引擎介绍</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included-2-1">QUANTI的策略回测框架（Quantz）</a></li>
+                    <li><a href="#whats-included-2-2">Quantz基本回测流程</a></li>
+                    <li><a href="#whats-included-2-3">订单处理</a></li>
+                    <li><a href="#whats-included-2-4">涨跌停、停牌退市等情况</a></li>
+                    <li><a href="#whats-included-2-5">风险指标</a></li>
+                </ul>
+              </li>
+              <li><a href="#whats-included-3">策略简明教程</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included-3-1">策略结构</a></li>
+                    <li><a href="#whats-included-3-2">一个最简单的日线策略</a></li>
+                    <li><a href="#whats-included-3-3">策略回测</a></li>
+                    <li><a href="#whats-included-3-4">一个使用历史数据的策略</a></li>
+                    <li><a href="#whats-included-3-5">一个使用分钟线的策略</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#whats-included1">策略API文档</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included1-1">回测基本关键字</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included1-1-1">start与end</a></li>
+                    <li><a href="#whats-included1-1-2">benchmark(基准)</a></li>
+                    <li><a href="#whats-included1-1-3">universe（证券池）</a></li>
+                    <li><a href="#whats-included1-1-4">freq和refresh_rate</a></li>
+                    <li><a href="#whats-included1-1-5">captial_base（起始资金）</a></li>
+                </ul>
+              </li>
+			  <li><a href="#whats-included1-2">回测基本方法</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included1-2-1">initialize</a></li>
+                    <li><a href="#whats-included1-2-2">bandle_data</a></li>
+                </ul>
+              </li>
+              <li><a href="#whats-included1-3">account相关属性</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included1-3-1">blotter</a></li>
+                    <li><a href="#whats-included1-3-2">cash</a></li>
+                    <li><a href="#whats-included1-3-3">now</a></li>
+                    <li><a href="#whats-included1-3-4">current_date</a></li>
+                    <li><a href="#whats-included1-3-5">current_minute</a></li>
+                    <li><a href="#whats-included1-3-6">previous_date</a></li>
+                    <li><a href="#whats-included1-3-7">referencePortfolioValue</a></li>
+                    <li><a href="#whats-included1-3-8">referencePrice</a></li>
+                    <li><a href="#whats-included1-3-9">universe</a></li>
+                    <li><a href="#whats-included1-3-10">valid_secpos</a></li>
+                </ul>
+              </li>
+              <li><a href="#whats-included1-4">获取历史行情数据</a>
+              	<ul class="nav navthree navthree">
+                	<li><a href="#whats-included1-4-1">get_attribute_history</a></li>
+                    <li><a href="#whats-included1-4-2">get_history</a></li>
+                    <li><a href="#whats-included1-4-3">get_symbol_history</a></li>
+                </ul>
+              </li>
+              <li><a href="#whats-included1-5">下单</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included1-5-1">order</a></li>
+                    <li><a href="#whats-included1-5-2">order_to</a></li>
+                    <li><a href="#whats-included1-5-3">order_pct</a></li>
+                    <li><a href="#whats-included1-5-4">order_by5MAvg</a></li>
+                </ul>
+              </li>
+              <li><a href="#whats-included1-6">其他</a>
+              	<ul class="nav navthree">
+                	<li><a href="#whats-included1-6-1">commission（手续费）</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#whats-included2">DataAPI相关方法</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included2-1">DataAPI.TradeCalGet</a></li>
+              <li><a href="#whats-included2-2">DataAPI.MktStockFactors-<br/>OneDayGet</a></li>
+              <li><a href="#whats-included2-3">DataAPI.MktEqudAdjGet</a></li>
+              <li><a href="#whats-included2-4">DataAPI. MktFutdVolGet</a></li>
+            </ul>
+         </li>
+          
+        </ul>
+        <a class="back-to-top" href="#top">
+			 返回顶部
+        </a>
+        
+      </nav>
+    </div>
+    
+	<div class="col-md-9" role="main">
+
+      <div class="bs-docs-section">
+      
+        <h1 id="whats-included" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	QUANTI策略框架简介
+        </h1>
+        
+        <h2 id="whats-included-1">
+        	<a class="anchorjs-link " href="#whats-included-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	什么是交易策略
+        </h2>
+        <ul>
+            <li>一般而言，不管是选股、择时，还是数据挖掘、统计套利类型的交易策略（或称为投资策略）都可以归纳为如下方法：<br/>
+            	根据一定的规则，进行何时、何价、买入多少数量的何种资产的决策。一系列的决策导致了投资组合价值的涨跌变化，也反映了策略的优劣。
+            </li>
+            <li>在QUANTI中，交易策略被具体化为根据一定的规则，判断每个交易日以开盘价买入多少数量的何种股票。并且QUANTI定义了统一的策略模板和便捷的工具，使得用户可以快速方便地构建各种个性化的交易策略。</li>
+            <li>QUANTI的策略回测框架是通过虚拟账户来实现的。策略回测函数在每个交易日下达一系列交易指令，通过这些交易指令的执行，虚拟账户的头寸和价值也随之改变——次，直至回测日期结束完成一次回测的过程，而回测结果可以反映出当前交易策略是否能够盈利、盈利是否稳定等等信息。</li>
+        </ul>
+
+        <h2 id="whats-included-2">
+        	<a class="anchorjs-link " href="#whats-included-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	QUANTI策略引擎介绍
+        </h2>
+        <h3 id="whats-included-2-1">
+        	<a class="anchorjs-link " href="#whats-included-2-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	QUANTI的策略回测框架（Quartz）
+        </h3>
+        <p>QUANTI的回测框架目前支持股票的日线及分钟线回测，在未来，还将会支持场内ETF/LOF基金、期货、高频交易以及固定收益市场等等类型的策略。</p>
+        <p>QUANTI为用户提供的回测框架叫做Quartz，有以下特点；</p>
+        <p>
+        	<ul>
+        	<li>Quartz 是Python 2.7 环境下的一个标准化的量化投资策略回测框架，支持日线的股票和基金量化投资策略。依照Quartz的策略模板，您可以开发和检验各种独特的投资策略，并方便地进行回测，了解投资策略在市场中的历史表现，比较不同投资策略的优劣。</li>
+            <li>Quartz 兼容各类Python的数学、统计、金融和机器学习等扩展模块，如Pandas, Numpy, Scipy, statsmodels, Scikit Learn, talib等等您可以实现技术分析、多因子、数据挖掘、统计套利、事件驱动等各种流派和风格的证券投资策略，提供了无限的可能性。</li>
+            <li>Quartz 覆盖了策略研究的所有阶段。其集成了数据获取功能，能够在线迅速高效地获取证券行情数据、指数行情数据和无风险收益率数据等等，快速进行策略的回测。</li>
+            <li>Quartz运行在高度安全的QUANTI平台上。</li>
+        	</ul>
+        </p>
+        <h3 id="whats-included-2-2">
+        	<a class="anchorjs-link " href="#whats-included-2-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	Quartz基本回测流程
+        </h3>
+        <p>策略回测的基本流程为：
+        <ol>
+        	<li>用户设置回测日期区间、起始资金、股票池、基准、调仓频率等 回测基本关键字 ；</li>
+            <li>QUANTI回测框架建立一个虚拟交易账户，这个账户记录了回测区间的交易日、现金与证券的头寸、每日交易指令明细、历史数据接口等等内容，并在整个回测期间存续；</li>
+            <li>用户实现 initialize 函数，用于设置一些全局变量信息，该函数只在策略初始化时运行一次；</li>
+            <li>用户实现 handle_data 函数，函数中设置策略每个调仓周期的下单逻辑，是策略的核心部分，该函数每个调仓周期都会调用一次；</li>
+            <li>Quartz回测引擎会根据您设置的上述参数、函数：
+            	<ul>
+                	<li>在初始化的时候获得证券相关的行情数据；</li>
+                    <li>然后每个调仓周期运行一次handle_data，根据handle_data的逻辑生成下单交易指令列表；</li>
+                    <li>接着根据当天或当时的行情数据，对交易指令进行模拟成交；</li>
+                    <li>最后更新成交后虚拟交易账户中的现金及证券头寸。</li>
+                </ul>
+            </li>
+            <li>6.回测结束后，回测引擎会根据每天交易结果生成回测报告，包括收益、每日持仓、每日调仓、风险指标 等信息。</li>
+        </ol>
+        </p>
+        <h3 id="whats-included-2-3">
+        	<a class="anchorjs-link " href="#whats-included-2-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	订单处理
+        </h3>
+        <p>目前Quartz总共提供了2个不同的下单API，以让用户在策略中完成下达交易指令的逻辑。</p>
+        <p>需要注意的是，调用下单API之后生成的订单并不会立刻进行交易，而是要等handle_data()函数执行完以后才会进行订单处理，所以先下的订单并不会对现金及证券仓位产生影响。</p>
+        <div>订单未成交或部分成交可能有以下原因：
+        	<ul>
+            	<li>账户里的现金或现券不够（注意这里指的是该条指令被执行时的现金和现券，亦即该条指令之前的指令均已被处理完毕）；</li>
+                <li>所需买进或卖出数量超过当天的成交量；</li>
+                <li>标的证券停牌、涨停（不能买入）或跌停（不能卖出）。</li>
+            </ul>
+        </div>
+        <p>订单相关的API有： <code>order</code>、<code>order_to</code>、<code>order_pct</code>、<code>order_by5MAvg</code></p>
+        <h3 id="whats-included-2-4">
+        	<a class="anchorjs-link " href="#whats-included-2-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	涨跌停、停牌退市等情况
+        </h3>
+        <p>您通过universe参数设置了策略的证券池后，QUANTI的回测框架还会在每个k线对证券池进行涨跌停、停牌、未上市等情况进行预处理：
+        	<ul>
+            	<li>停牌：
+                	<ul>
+                    	<li>当天股票停牌、退市、未上市，则无法买入；</li>
+                    </ul>
+                </li>
+                <li>涨跌停：
+                	<ul>
+                    	<li>当天股票涨停则该股票无法买入，当天股票跌停则该股票无法卖出；</li>
+                        <li>您调用 order 相关的下单函数后，回测框架会自动对涨跌停股票做不成交处理，订单成交结果可以在订单成交状态中查看。</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        
+        <h3 id="whats-included-2-5">
+        	<a class="anchorjs-link " href="#whats-included-2-5" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	风险指标
+        </h3>
+        <p>策略的风险指标能够让您对策略在各个维度有客观、全面的评估。</p>
+        <p>QUANTI回测框架提供了如下风险指标：
+        	<ul>
+            	<li>年化收益率（Annualized Returns）： 表示投资期限为一年的预期收益率。<br/><img src="/libs/images/API-images/01.png" class="img-responsive" alt="Responsive image"/></li>
+                <li>基准年化收益率（Benchmark Returns）：表示参考标准年化收益率。<br/><img src="/libs/images/API-images/02.png" class="img-responsive" alt="Responsive image"/></li>
+                <li>阿尔法（Alpha）：<br/>
+                	<p>表示投资中面临着系统性风险（即Beta）和非系统性风险（即Alpha）。</p>
+                    <p>Alpha是投资者获得与市场波动无关的回报，一般用来度量投资者的投资技艺。 比如投资者获得了12%的回报，其基准获得了10%的回报，那么Alpha或者价值增值的部分就是2%。</p>
+                    <img src="/libs/images/API-images/03.png" class="img-responsive" alt="Responsive image"/>
+                    <p>其中：</p>
+                    <table class="table">
+                    	<thead>
+                        	<tr>
+                            	<th>Alpha值</th>
+                                <th>释义</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>α>0</td>
+                                <td>策略相对于风险，获得了超额收益</td>
+                            </tr>
+                            <tr>
+                                <td>α=0</td>
+                                <td>策略相对于风险，获得了适当收益</td>
+                            </tr>
+                            <tr>
+                                <td>α<0</td>
+                                <td>策略相对于风险，获得了较少收益</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>贝塔（Beta）：<br/>
+                	<p>表示投资的系统性风险，反映了策略对大盘变化的敏感性。</p>
+                    <p>例如一个策略的Beta为1.3，则大盘涨1%的时候，策略可能涨1.3%，反之亦然；如果一个策略的Beta为-1.3，说明大盘涨1%的时候，策略可能跌1.3%，反之亦然。</p>
+                    <img src="/libs/images/API-images/04.png" class="img-responsive" alt="Responsive image"/>
+                </li>
+                <li>夏普比率（Sharpe Ratio）：<br/>
+                	<p>表示每承受一单位总风险，会产生多少的超额报酬，可以同时对策略的收益与风险进行综合考虑。</p>
+                    <img src="/libs/images/API-images/05.png" class="img-responsive" alt="Responsive image"/>
+                </li>
+                <li>收益波动率（Volatility）：<br/>
+                	<p>用来测量资产的风险性，波动越大代表策略风险越高。</p>
+                    <img src="/libs/images/API-images/06.png" class="img-responsive" alt="Responsive image"/>
+                </li>
+                <li>信息比率（Information Ratio）：<br/>
+                	<p>衡量单位超额风险带来的超额收益。</p>
+                    <p>信息比率越大，说明该策略单位跟踪误差所获得的超额收益越高，因此，信息比率较大的策略的表现要优于信息比率较低的基金。合理的投资目标应该是在承担适度风险下，尽可能追求高信息比率。</p>
+                    <img src="/libs/images/API-images/07.png" class="img-responsive" alt="Responsive image"/>
+                </li>
+                <li>最大回撤（Max Drawdown）：<br/>
+                	<p>描述策略可能出现的最糟糕的情况。</p>
+                    <img src="/libs/images/API-images/08.png" class="img-responsive" alt="Responsive image"/>
+                </li>
+                <li>换手率（Turnover Rate）：
+                	<p>描述策略变化的频率以及持有某只股票平均时间的长短。</p>
+                    <img src="/libs/images/API-images/09.png" class="img-responsive" alt="Responsive image"/>
+                </li>
+            </ul>
+        </p>
+        <h2 id="whats-included-3">
+        	<a class="anchorjs-link " href="#whats-included-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	策略简明教程
+        </h2>
+        <h3 id="whats-included-3-1">
+        	<a class="anchorjs-link " href="#whats-included-3-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	策略结构
+        </h3>
+        <p>您新建一个策略后后，会显示如下策略代码模板：</p>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">start = '2014-01-01'</span>                    <span class="c1"># 回测起始时间</span><br/><span class="na">end = '2015-01-01'</span>                         <span class="c1"># 回测结束时间</span><br/><span class="na">benchmark = 'HS300'</span>                        <span class="c1"># 策略参考标准</span><br/><span class="na">universe = ['000001', '600000 ']</span>  <span class="c1"># 证券池，支持股票和基金</span><br/><span class="na">capital_base = 100000</span>                      <span class="c1"># 起始资金</span><br/><span class="na">freq = 'd'</span>                                 <span class="c1"># 策略类型，'d'表示日间策略使用日线回测，'m'表示日内策略使用分钟线回测</span><br/><span class="na">refresh_rate = 1</span>                          <span class="c1"># 调仓频率，表示执行handle_data的时间间隔，若freq = 'd'时间间隔的单位为交易日，若freq = 'm'时间间隔为分钟</span><br/><span class="na">def initialize(account):</span>                   <span class="c1"># 初始化虚拟账户状态</span><br/><span class="na">pass</span><br/><span class="na">def handle_data(account):</span>                  <span class="c1"># 每个交易日的买入卖出指令</span><br/><span class="na">    return</span></code>
+           </pre>
+        </div>
+        <p>该策略代码由两部组成：
+        	<ul>
+            	<li>回测基本关键字：
+                	<p>策略模板中提供了7个回测基本关键</p>
+                    <p>字 start, end, benchmark, universe, capital_base, refresh_rate,上述6个参数是最重要的。通过这6个参数的代码注释，您应该非常清楚他们的作用了，他们的具体帮助请查看API帮助文档中的 回测基本关键字。</p>
+                </li>
+                <li>回测基本方法：
+                	<p>策略模板的第二部分包括 initialize(account) 和 handle_data(account) 两个回测基本方法，这两个方法缺一不可。</p>
+                    <p>在了解这两个函数的作用以前，我们需要大概了解一下交易账户 account 的概念。</p>
+                    <p>策略初始化之前，会建立一个虚拟的交易账户 account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、证券的头寸、每日交易指令明细、历史数据等。account会在策略整个回测期间存续。account的详细信息可以查看帮助： account相关属性 。</p>
+                    <ul>
+                    	<li><code>initialize(account)：</code>
+                        	<ul>
+                            	<li>该函数在在系统初始化后被调用一次；</li>
+                                <li>您可以通过给account添加新的属性的方法，自定义各种指标变量等等；</li>
+                                <li>详细API帮助见 initialize</li>
+                            </ul>
+                        </li>
+                        <li><code>handle_data(account) ：</code>
+                        	<ul>
+                            	<li>这个函数在每个交易日开盘前被调用，模拟每个交易日开盘前，交易策略会根据历史数据或者其他信息进行交易判断，模拟下达交易指令；</li>
+                                <li>接下来系统回测引擎会根据当天的市场数据对这些指令进行能否交易的判断，并更新account当中的现金数量、股票头寸和交易指令信息；</li>
+                                <li>随后该交易日结束，在该函数中定义的局部变量会被清空，循环进入下一个交易日，即继续调用handle_data函数；</li>
+                                <li>详细API帮助见 handle_data 。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        
+        <h3 id="whats-included-3-2">
+        	<a class="anchorjs-link " href="#whats-included-3-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	一个最简单的日线策略
+        </h3>
+        <p>基于以上了解，现在让我们来实现一个最简单的交易策略：每天买入一手股票池里的所有股票。</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">start = '2014-01-01'</span>                  <span class="c1"># 回测起始时间</span><br/><span class="na">end = '2015-01-01'</span>                         <span class="c1"># 回测结束时间</span><br/><span class="na">benchmark = 'HS300'</span>                        <span class="c1"># 策略参考标准</span><br/><span class="na">universe = ['000001', '600000']</span>  <span class="c1"># 证券池，支持股票和基金</span><br/><span class="na">capital_base = 100000</span>                      <span class="c1"># 起始资金</span><br/><span class="na">freq = 'd'</span>                                 <span class="c1"># 策略类型，'d'表示日间策略使用日线回测</span><br/><span class="na">refresh_rate = 1</span>                           <span class="c1"># 调仓频率，表示执行handle_data的时间间隔，由于freq = 'd'，时间间隔的单位为交易日</span><br/><span class="na">def initialize(account):</span>                   <span class="c1"># 初始化虚拟账户状态</span><span class="na">pass</span><br/><span class="na">def handle_data(account):</span>                  <span class="c1"># 每个交易日的买入卖出指令</span><span class="na">for stock in account.universe:</span><br/><span class="na">order(stock,100)</span></code>
+           </pre>
+        </div>
+        <p>您会发现上述代码中出现了两个比较陌生的内容：
+        	<ul>
+            	<li><code>account.universe：</code>
+                	<p>表示交易日当天，universe 中可以进行交易的证券池。</p>
+                    <p>详细帮助见 account.universe 。</p>
+                </li>
+                <li><code>order(symbol, amount)：</code>
+                	<p>用来模拟下达买卖指令，表示买入amount股symbol股票。如果amount为正数，表示买入；为负数，则表示卖出。</p>
+                    <p>详细帮助见 order 。</p>
+                </li>
+            </ul>
+        </p>
+        <p>这样，每天买入一手股票池里的所有股票就完成了。尽管还很简陋，但这是走向各种复杂策略的第一步！</p>
+        
+        <h3 id="whats-included-3-3">
+        	<a class="anchorjs-link " href="#whats-included-3-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	策略回测
+        </h3>
+        <p>运行该策略，运行成功后，将会看到策略表现。例如：</p>
+        <img src="/libs/images/API-images/21.png" class="img-responsive" alt="Responsive image"/>
+        <p>您可以看到回测结果的上面部分显示了一些主要的风险收益指标；下面部分显示的是当前策略和参照基准的累计收益率随时间变化的对比图。</p>
+        <p>您可以通过 风险指标 章节查看这些风险指标的含义以及计算方法。</p>
+        <p>此外，Strategy单元还提供了回测详情，详细记录了每个订单的成交情况（下单数量、成交均价、成交数量等）、每个交易日的持仓信息，以及收益率、Alpha、Beta、Sharpe Ratio、Volatility、Information Ratio、Max Drawdown等时间序列数值。</p>
+        <p>具体可以点击右上方的 “回测详情查看”，例如：</p>
+        <img src="/libs/images/API-images/22.png" class="img-responsive" alt="Responsive image"/>
+        
+        <h3 id="whats-included-3-4">
+        	<a class="anchorjs-link " href="#whats-included-3-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	一个使用历史数据的策略
+        </h3>
+        <p>在写一个具体的策略的时候，很多想法都是与股票过去一段时间的价格、成交量等等指标有关的，于是我们需要在策略中取得并使用历史数据。</p>
+        <p>以下是一个简单的例子，策略思路是：计算股票前 10 个交易日的累计收益率，如果累计收益率大于 1% 并且手中没有该股票则买入100 股，如果累计收益率小于 0 并且手中有该股票则全部抛出。</p>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">start = '2014-01-01'</span>                       <span class="c1"># 回测起始时间</span><br/><span class="na">end = '2015-01-01'</span>                         <span class="c1"># 回测结束时间</span><br/><span class="na">benchmark = 'HS300'</span>                        <span class="c1"># 策略参考标准</span><br/><span class="na">universe = ['000001 ', '600000 ']</span>  <span class="c1"># 证券池，支持股票和基金</span><br/><span class="na">capital_base = 100000</span>                      <span class="c1"># 起始资金</span><br/><span class="na">freq = 'd'</span>                                 <span class="c1"># 策略类型，'d'表示日间策略使用日线回测</span><br/><span class="na">refresh_rate = 1</span>                           <span class="c1"># 调仓频率，表示执行handle_data的时间间隔，由于freq = 'd'，时间间隔的单位为交易日</span><br/><span class="na">def initialize(account):</span>                   <span class="c1"># 初始化虚拟账户状态</span><span class="na">pass</span><br/><span class="na">def handle_data(account):</span>                  <span class="c1"># 每个交易日的买入卖出指令</span><br/><span class="na">hist = account.get_attribute_history('end_price', 10)</span>
+            <span class="na">for s in account.universe:</span>
+                <span class="na">if hist[s][-1]/hist[s][0]-1 > 0.01 and account.valid_secpos[s] == 0:</span>
+                    <span class="na">order(s, 10000)</span>
+                <span class="na">elif hist[s][-1]/hist[s][0]-1 < 0 and account.valid_secpos[s] != 0:</span>
+                    <span class="na">order_to(s, 0)</span></code>
+           </pre>
+        </div>
+        <p>您会发现上述代码中出现了三个比较陌生的内容：
+        	<ul>
+            	<li><code>account.get_attribute_history( attribute, time_range)：</code>
+                	<ul>
+                    	<li>表示获取所有证券 attribute 属性 time_range 天的历史数据，返回数据类型为 dict ；</li>
+                        <li>例如上述例子中，某一个交易日的hist的值为：</li>
+                        <li>
+                        	<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">hist == {<br/>'000001': array([ 16.36,  16.54,  16.3 ,  16.65,  17.  ,  16.93,  16.3 ,  16.56, 16.95,  16.66]),<br/>'600000': array([ 17.53,  18.03,  17.89,  17.96,  18.65,  18.6 ,  17.9 ,  18.16, 18.5 ,  18.22])}</span></code>
+           </pre>
+        </div>
+                        </li>
+                        <li>除了该函数，还可以通过 account.get_symbol_history( symbol, time_range) 和account.get_history(time_range) 函数获取历史数据。</li>
+                    </ul>
+                </li>
+                <li><code>order_to(symbol, amount)：</code>
+                	<ul>
+                    	<li>用于模拟下达买卖指令，表示卖出symbol股票直至剩余amount股。</li>
+                    </ul>
+                </li>
+                <li><code>account.valid_secpos：</code>
+                	<ul>
+                    	<li>虚拟账户的一个属性；</li>
+                        <li>数据结构为字典，键为证券代码，值为虚拟账户当前所持有该证券的数量。</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        <p>使用历史数据后，回测收益从历史数据生效的日期开始计算。</p>
+        <p>此例子中，由于 start = '2014-01-01'，以及 account.get_attribute_history('endPrice', 10)，则收益生效日期为2014年1月1日10个交易日后的第一个交易日即2014年1月16日，即收益生效日期会根据获取的历史数据长度进行调整。</p>
+        
+        
+        <h3 id="whats-included-3-5">
+        	<a class="anchorjs-link " href="#whats-included-3-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	一个使用分钟线的策略
+        </h3>
+        <p>上文描述的相关策略是日间策略，即使用了日线的数据进行回测。</p>
+        <p>相比日间策略，日内策略回测控制更加精细，可以定义更加丰富的策略细节，使交易策略更加完善。</p>
+        <p>日内策略的运行框架与日间策略基本一致，都遵循着“定义参数 —— 获取数据 —— 进行回测 —— 分析结果”的逻辑，其中主要的区别在数据获取方面。同时，由于数据的不同，在进行回测上也会有一些针对性的变动。</p>
+        <p>除了像日间策略一样获取日线数据之外，日内策略在每个交易日都会获取该日的分钟线数据，同时在每一分钟结束的时候（即分钟线数据刷新的时候）运行handle_data，在下一分钟内进行交易指令的下达和模拟成交，更新所有数据（如referencePrice、referencePortfolioValue、valid_secpos等等），直到这一分钟的分钟线数据更新。每个交易日都有241条分钟线数据。</p>
+        <p>Quartz分钟线策略在handle_data当中提供了交易日当日所有的历史分钟线数据、前一交易日之前的日线历史数据、昨日持仓、未成交订单等等日内交易所需要的信息，此外，在分钟线策略中支持限价指令。</p>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">start = '2014-01-01'</span>                       <span class="c1"># 回测起始时间</span><br/><span class="na">end = '2015-01-01'</span>                         <span class="c1"># 回测结束时间</span><br/><span class="na">benchmark = 'HS300'</span>                        <span class="c1"># 策略参考标准</span><br/><span class="na">universe = ['000001 ', '600000 ']</span>  <span class="c1"># 证券池，支持股票和基金</span><br/><span class="na">capital_base = 100000</span>                      <span class="c1"># 起始资金</span><br/><span class="na">freq = 'm'</span>                                 <span class="c1"># 策略类型，'d'表示日间策略使用日线回测</span><br/><span class="na">refresh_rate = 1</span>                           <span class="c1"># 调仓频率，表示执行handle_data的时间间隔，由于freq = 'm'表示日内策略使用分钟线回测</span><br/><span class="na">refresh_rate = 1</span>                   <span class="c1"># 调仓频率，表示执行handle_data的时间间隔，由于freq = 'm'，时间间隔的单位为分钟</span><br/><span class="na">def initialize(account): </span>                   <span class="c1"># 初始化虚拟账户状态</span><br/><span class="na">pass</span><br/><span class="na">def handle_data(account):</span>                  <span class="c1"># 每个交易日的买入卖出指令</span><br/><span class="na">return</span></code>
+           </pre>
+        </div>
+        <p>其中的回测基本方法 —— initialize(account) 和 handle_data(account) 部分与日间策略几乎一样，只不过account中会多出一些日内回测专用的属性与方法，这些属性与方法只可在handle_data函数中使用，包括：
+        	<ul>
+            	<li>时间控制：<code>account.get_attribute_history( attribute, time_range)：</code>
+                	<p>account.current_minute 表示当前回测具体时间。只可在handle_data函数中使用，值为字符串，如'09:45', '13:37'等等。</p>
+                </li>
+                <li>日内历史窗口：<code>account.valid_secpos：</code>
+                	<p>account支持在分钟线回测中反馈分钟线、日线的历史行情数据，包括：
+	                	<ul>
+	                    	<li>历史分钟线行情数据接口：
+	                    		<p><code>account.get_symbol_history(symbol, range)</code></p>
+	                    		<p><code>account.get_attribute_history(attribute, range)</code></p>
+	                    		<p><code>account.get_history(range)</code></p>
+	                    		<p>返回的数据结构与日线策略获取的历史窗口数据结构一致，方法参数中的 range 表示当日历史分钟线的数量，注意同样的函数名称在日间回测时有不同的含义。</p>
+	                    	</li>
+	                        <li>历史日线行情数据接口：
+	                        	<p><code>account.get_daily_symbol_history(symbol, range)</code></p>
+	                    		<p><code>account.get_daily_attribute_history(attribute, range)</code></p>
+	                    		<p><code>account.get_daily_history(range)</code></p>
+	                    		<p>方法参数中的 range 表示前一交易日开始算的日线的数量（包含前一交易日），这些函数只有日内回测时才有。</p>
+	                        </li>
+	                    </ul>
+	                </p>
+                </li>
+                <li>分钟线数据须知：
+                	<ul>
+	                	<li>每个交易日都有241根历史分钟线行情数据：
+		                	<p>采用向后归结的方式，即在 10:00 分钟区间或调用 account.get_history(1) 获取的数据，是指在 9:59:00.000 至 10:00:00.000 期间的行情数据。<br/>其中特别的是：
+		                		<ul>
+		                			<li>9:30 分钟线区间是指在集合竞价期间的行情数据。</li>
+		                			<li>11:30 分钟线区间是指在 11:29:00.000 至 13:00:00.000 期间的行情数据。</li>
+		                			<li>15:00 分钟线区间是指在 14:59:00.000 至 收盘 期间的行情数据。</li>
+		                		</ul>
+		                	</p>
+		                </li>
+		                <li>每个交易日至多有240个分钟的调仓：
+		                	<p>从 9:30 至 14:59 期间每一分钟都可以触发 handle_data() 方法，进行调仓下单。</p>
+		                	<p>其中特别的是，11:30 触发 handle_data() 方法生成的订单，将在 13:00 下单。13:00 和 15:00 这两个时间点无法触发 handle_data() 方法进行调仓下单。</p>
+		                </li>
+	               	</ul>
+                </li>
+            </ul>
+        </p>
+        <p>至此，您已经掌握了构建策略的基本步骤和方法，现在可以充分发挥自己的聪明才智，开始挖掘收益更高更稳定的量化投资策略了！</p>
+        
+        
+        <!--策略API开始-->
+       	<h1 id="whats-included1" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included1" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	策略API文档
+        </h1>
+
+        <h2 id="whats-included1-1">
+        	<a class="anchorjs-link " href="#whats-included1-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	回测基本关键字
+        </h2>
+        <p>在QUANTI上写量化策略时，需要预先定义策略运行的范围和域，这一操作是通过给固定的关键字赋值来完成的。</p>
+        <p>回测基本关键词包括：</p>
+        <h3 id="whats-included1-1-1">
+        	<a class="anchorjs-link " href="#whats-included1-1-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	start与end
+        </h3>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>策略全局变量，表示回测起止时间，Quartz会自动截取start之后第一个交易日和end之前最后一个交易日进行回测。</p>
+                <p>
+                	<ul>
+                    	<li><span class="s">start:</span> 回测数据获取起始日期。</li>
+                        <li><span class="s">end:</span> 回测数据获取结束日期。</li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>字符串或者datetime，注意字符串只支持"YYYY-MM-DD"格式。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">start = '2016-01-01'</span><span class="c1"># 在2016年1月1日开始回测</span><br/><span class="na">end = '2016-02-01'</span><span class="c1"># 在2016年2月1日结束回测</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        
+        <h3 id="whats-included1-1-2">
+        	<a class="anchorjs-link " href="#whats-included1-1-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	benchmark（基准）
+        </h3>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>策略参照标准，即该量化策略回测结果的比较标准，通过比较可以大致看出策略的好坏。策略的一些风险指标如alpha, beta等等也要通过benchmark计算出来。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>字符串</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>支持三种赋值方式：</p>
+                <ul>
+                	<li>九个常用指数：SH（上证综指）、SH50（上证50）、SH180（上证180）、ZZ500（中证500）、SZ（深圳成指）、ZXB（中小板综）、HS300（沪深300）、FUND_SH（沪市基金）和FUND_SZ（深市基金），可以通过直接命名"HS300"来定义，例如：<br/>
+                    	<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">benchmark = 'HS300'</span><span class="c1"># 策略参考标准为沪深300</span></code>
+                           </pre>
+                        </div>
+                    
+                    </li>
+                    <li>个股的secID，例如：<br/>
+                    	<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">benchmark = '000001'</span><span class="c1"> # 策略参考标准为平安银行</span></code>
+                           </pre>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+        
+        
+        <h3 id="whats-included1-1-3">
+        	<a class="anchorjs-link " href="#whats-included1-1-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	universe（证券池）
+        </h3>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>策略回测的证券池，即策略逻辑作用的域，下单与历史数据获取都只能限于universe中的证券。支持全部A股、全部可在二级市场交易的ETF与LOF。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>list</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <ul>
+                	<li>您可以自己定义列表中的证券，如['000001', '600000']，证券需要包含证券编码</li>
+                    <li>注意通过上述两种方法定义的universe是静态的，一经指定则在回测中不会出现任何不在其中的证券；</li>
+                </ul>
+            </li>
+        </ul>
+        
+        
+        
+        <h3 id="whats-included1-1-4">
+        	<a class="anchorjs-link " href="#whats-included1-1-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	freq和refresh_rate
+        </h3>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>这两个字段共同决定了回测频率与调仓频率，其中freq决定回测的最小时间单位，而refresh_rate决定回测间隔时间单位。</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>
+                	<ul>
+                    	<li>freq: 字符串。值可以为'd'或'm'，其中d表示回测行情数据最小单位为日线，而'm'则表示为分钟；</li>
+                        <li>refresh_rate: 整型。日间策略表示交易日数量，日内策略表示分钟线数量，从而决定每隔多少个时间单位执行一次策略逻辑。</li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1"># 每两个交易日运行一遍策略算法即handle_data函数</span><br/><span class="na">freq = 'd'</span><br/><span class="na">refresh_rate = 2</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-1-5">
+        	<a class="anchorjs-link " href="#whats-included1-1-5" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	capital_base（起始资金）
+        </h3>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>起始资金数量</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>浮点或整型</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na"> capital_base = 10000</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        
+        
+        
+        
+        <h2 id="whats-included1-2">
+        	<a class="anchorjs-link " href="#whats-included1-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	回测基本方法
+        </h2>
+        <h3 id="whats-included1-2-1">
+        	<a class="anchorjs-link " href="#whats-included1-2-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	initialize
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">initialize(account)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>初始化策略，在整个回测、模拟交易中只执行一次，您可以在方法中初始化一些全局变量。</p>
+                <p>您可以通过给account添加新的属性的方法，自定义各种指标变量等等。</p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <p>account： 策略回测、模拟交易中的账户，策略初始化之前，会建立一个交易账户 account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、证券的头寸、每日交易指令明细、历史数据等。account会在策略整个回测期间存续。account相关的信息请参考 account相关属性 以及 account相关的函数 获取历史行情数据 。</p>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>无</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">def initialize(account):</span><br/><span class="na">account.i = 0</span><br/><span class="na">pass</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        
+        <h3 id="whats-included1-2-2">
+        	<a class="anchorjs-link " href="#whats-included1-2-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	handle_data
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">handle_data(account)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>该方法在每个单位时间会被调用，在handle_data方法中，您可以根据历史数据或者其他信息进行交易判断，模拟下达交易指令。</p>
+                <p>运行完成handle_data方法后，QUANTI会根据当天的市场数据对handle_data生成的下单指令进行能否交易的判断，并更新account当中的现金数量、股票头寸和交易指令信息。</p>
+                <p>随后该交易日结束，在该函数中定义的局部变量会被清空，循环进入下一个交易日，即继续调用handle_data函数。</p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <p>account： 策略回测、模拟交易中的账户，策略初始化之前，会建立一个交易账户 account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、证券的头寸、每日交易指令明细、历史数据等。account会在策略整个回测期间存续。account相关的信息请参考 account相关属性 以及 account相关的函数 获取历史行情数据 。</p>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>无</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">def handle_data(account):</span><br/><span class="c1"># 每只股票下100股</span><br/><span class="na">for s in account.universe:</span><br/><span class="na">order(s,100)</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        
+        <h2 id="whats-included1-3">
+        	<a class="anchorjs-link " href="#whats-included1-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	account相关属性
+        </h2>
+        <p>以下为系统提供的account相关属性，只能在handle_data方法中调用，并且不建议修改。</p>
+        
+        <h3 id="whats-included1-3-1">
+        	<a class="anchorjs-link " href="#whats-included1-3-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	blotter
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.blotter</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>当前的下单指令列表，由于handle_data函数还未运行完毕，因此此时获得的下单指令列表中，所有指令还未成交。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>列表。</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.blotter的值例如：</p>
+                <div class="highlight">
+                	<pre>
+                		<code class="language-scss" data-lang="scss"><span class="na">[Order(order_time: 2014-01-02 09:30,</span><br/><span class="na">		symbol: 000001.XSHE,</span><br/><span class="na">		direction: 1,</span><br/><span class="na">		order_amount: 100, state: ,</span><br/><span class="na">		filled_time: ,</span><br/><span class="na">		filled_amount: 0,</span><br/><span class="na">		transact_price: 0.0000,</span><br/><span class="na">		slippage: 0.0000,</span><br/><span class="na">		commission: 0.0000),</span><br/><span class="na">Order(order_time: 2014-01-02 09:30,</span><br/><span class="na">		symbol: 600000.XSHG,</span><br/><span class="na">		direction: 1,</span><br/><span class="na">		order_amount: 100,</span><br/><span class="na">		state: ,</span><br/><span class="na">		filled_time: ,</span><br/><span class="na">		filled_amount: 0,</span><br/><span class="na">		transact_price: 0.0000,</span><br/><span class="na">		slippage: 0.0000,</span><br/><span class="na">		commission: 0.0000)]</span><br/></code>
+		           </pre>
+		        </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-3-2">
+        	<a class="anchorjs-link " href="#whats-included1-3-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	cash
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.cash</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>上一K线结束后的现金头寸。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>浮点数。</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-3-3">
+        	<a class="anchorjs-link " href="#whats-included1-3-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	now
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.now</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>当前回测日期。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>字符串</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.now的值例如:</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">2014-01-02</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-3-4">
+        	<a class="anchorjs-link " href="#whats-included1-3-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	current_date
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.current_date</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>当前回测日期。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>datetime</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.current_date的值例如:</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">2014-01-02 00:00:00</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-3-5">
+        	<a class="anchorjs-link " href="#whats-included1-3-5" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	current_minute
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.current_minute</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>当前回测分钟线（仅对日内策略有效）</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>字符串</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>仅限分钟线策略，在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.current_minute的值例如：</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">'09:30'</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-3-6">
+        	<a class="anchorjs-link " href="#whats-included1-3-6" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	previous_date
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.previous_date</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>前一交易日。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>datetime</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.previous_date的值例如:</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">2014-01-02 00:00:00</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        
+        
+        <h3 id="whats-included1-3-7">
+        	<a class="anchorjs-link " href="#whats-included1-3-7" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	referencePortfolioValue
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.referencePortfolioValue</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>使用account.cash，account.referencePrice和account.valid_secpos计算出的整个策略当前的参考价值。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>浮点。</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+        </ul>
+        
+                
+        <h3 id="whats-included1-3-8">
+        	<a class="anchorjs-link " href="#whats-included1-3-8" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	referencePrice
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.referencePrice</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>证券参考价，一般使用的是上一日收盘价或者上一分钟收盘价。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>字典，键为证券代码，值为价格（浮点）</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.referencePrice的值例如:</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">{'000001': 8.3040000000000003, '600000': 8.3059999999999992}</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+        
+        <h3 id="whats-included1-3-9">
+        	<a class="anchorjs-link " href="#whats-included1-3-9" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	universe
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.universe</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>表示当前交易日的证券池，从全局变量universe和当前持有的证券池中，剔除了当天停牌、退市和数据异常证券的证券池。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>list</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+                <p>建议调用类似 order(symbol,amount) 的 下单 函数时，symbol参数用 account.universe 中的值进行赋值。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.universe的值例如：</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">['000001', '600000']</span></code>
+           </pre>
+        </div>
+            </li>
+        </ul>
+        
+       
+        
+        <h3 id="whats-included1-3-10">
+        	<a class="anchorjs-link " href="#whats-included1-3-10" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	valid_secpos
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.valid_secpos</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>上一K线结束后的有效证券头寸，即持仓数量大于0的证券头寸。</p>
+            </li>
+            <li>
+            	<strong>类型</strong>
+                <p>数据类型为字典，键为证券代码，值为头寸。</p>
+                <p class="">注：该变量会在初始给所有universe中的stock key赋值0，在回测过程中卖空的股票也不会删除key，而是值为0</p>
+            </li>
+            <li>
+            	<strong>用法</strong>
+                <p>只能在handle_data方法中使用，并且不建议修改。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>account.valid_secpos的值例如:</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">{'000001': 100, '600000': 100}</span></code>
+		           </pre>
+		        </div>
+            </li>
+        </ul>
+        
+        
+        <h2 id="whats-included1-4">
+        	<a class="anchorjs-link " href="#whats-included1-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	获取历史行情数据
+        </h2>
+        <h3 id="whats-included1-4-1">
+        	<a class="anchorjs-link " href="#whats-included1-4-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	get_attribute_history
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.get_attribute_history(attribute, time_range)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>获取单只证券属性的日线或分钟线历史数据。</p>
+                <p>
+                	<ul>
+                    	<li>日间策略时，即freq='d'时：表示获取所有证券 attribute 属性在 time_range 天的历史数据；</li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>attribute：</code>
+                        	<ul>
+                                <li>释义：证券属性名称</li>
+                                <li>类型：字符串</li>
+                                <li>用法：start_price（表示开盘价）、end_price （表示收盘价）、update_ratio（涨跌幅）、osci_ratio（振幅）、max_price（最高价）、min_price（最低价）、trade_volume（交易量）、trade_amount（成交额）、turnover_ratio（换手率）。</li>
+                            </ul>
+                        </li>
+                        <li><code>time_range：</code>
+                        	<ul>
+                                <li>释义：所需要获取的历史数据窗口长度，日间单位为交易日，日内单位为分钟。</li>
+                                <li>类型：整型</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>返回的是过去time_range长度交易日的当前account.universe中所有证券某属性的历史数据窗口。</p>
+                <p>数据结构为字典，键为证券代码的secID，值为前time_range长度的交易日的该属性的值的list。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>以日间回测为例，当 account.universe = ['000001 ', '600000'] 时：</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">def handle_data(account):</span><br/><span class="na"> all_close_prices = account.get_attribute_history('end_price', 10)</span></code>
+                   </pre>
+                </div>
+                <p>all_close_prices的值为：</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">{'000001': [ 8.322,  8.33 ,  8.322,  8.33 ,  8.313,  8.313,  8.304,  8.313, 8.322,  8.313],</span><br/><span class="na">'600000': [ 8.257,  8.25 ,  8.25 ,  8.236,  8.25 ,  8.243,  8.257,  8.257,  8.27 ,  8.291]}</span></code>
+                   </pre>
+                </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-4-2">
+        	<a class="anchorjs-link " href="#whats-included1-4-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	get_history
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.get_history(time_range)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>获取日线历史数据。</p>
+                <p>
+                	<ul>
+                    	<li>日间策略时，即freq='d'时：表示获取所有证券的所有属性在过去 time_range 天的历史数据；</li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>time_range：</code>
+                        	<ul>
+                                <li>释义：所需要获取的历史数据窗口长度，日间单位为交易日</li>
+                                <li>类型：整型</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>返回前time_range日线的所有当前account.universe中的证券的所有相应属性的值。</p>
+                <p>数据结构为二重字典，第一层键为证券代码，第二层键为start_price （表示开盘价）、end_price （表示收盘价）、updown（涨跌幅）、osci_ratio（振幅）、max_price（最高价）、min_price（最低价）、trade_volume（交易量）、trade_amount（成交额）、turnover_ratio（换手率）等属性名称，值为前time_range长度的日线的该属性的值的list。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>以日间回测为例，如果在handle_data()中使用account.get_history(3)则某一天的结果为：</p>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">def handle_data(account):</span><br/><span class="na">all_history = account.get_history(3)</span></code>
+                   </pre>
+                </div>
+                <p>all_history的值为：</p>
+              	<div class="highlight">
+              		<pre>
+              			<code class="language-scss" data-lang="scss"><span class="na">{</span><br/><span class="na">	"600000": {</span><br/><span class="na">		"osci_ratio": [3,2.43,2.29],</span><br/><span class="na">		"start_price": [14.82,14.58,14.58],</span><br/><span class="na">		"trade_volume": [242203056,266968080,207865328],</span><br/><span class="na">		"trade_amount": [3592649980,3864610050,3021750020],</span><br/><span class="na">		"end_price": [14.81,14.42,14.47],</span><br/><span class="na">		"trade_day": ["2015-01-28","2015-01-29","2015-01-30"],</span><br/><span class="na">		"min_price": [14.66,14.32,14.36],</span><br/><span class="na">		"updown": [-1.33,-2.63,0.35],</span><br/><span class="na">		"turnover_ratio": [1.62,1.79,1.39],</span><br/><span class="na">		"max_price": [15.11,14.68,14.69]</span><br/><span class="na">	},</span><br/><span class="na">	"000001": {</span><br/><span class="na">		"osci_ratio": [3.57,1.85,2.59],</span><br/><span class="na">		"start_price": [13.87,13.82,13.93],</span><br/><span class="na">		"trade_volume": [124087752,101675328,93011672],</span><br/><span class="na">		"trade_amount": [1742179970,1408829950,1298739970],</span><br/><span class="na">		"end_price": [14.06,13.9,13.93],</span><br/><span class="na">		"trade_day": ["2015-01-28","2015-01-29","2015-01-30"],</span><br/><span class="na">		"min_price": [13.8,13.75,13.76],</span><br/><span class="na">		"updown": [0.5,-1.14,0.22],</span><br/><span class="na">		"turnover_ratio": [1.26,1.03,0.95],</span><br/><span class="na">		"max_price": [14.3,14.01,14.12]</span><br/><span class="na">	}</span><br/><span class="na">}</span></code>
+              			
+                   </pre>
+                </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-4-3">
+        	<a class="anchorjs-link " href="#whats-included1-4-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	get_symbol_history
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">account.get_symbol_history(symbol, time_range)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>获取单只证券的日线的历史数据。</p>
+                <p>
+                	<ul>
+                    	<li>日间策略时，即freq='d'时：表示获取单只证券的历史数据，即获取symbol证券中所有属性在 time_range天的历史数据；</li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>symbol：</code>
+                        	<ul>
+                                <li>释义：需要返回的信息，支持证券代码、'benchmark'，日线策略支持 'tradeDate'。</li>
+                                <li>类型：字符串</li>
+                            </ul>
+                        </li>
+                        <li><code>time_range：</code>
+                        	<ul>
+                                <li>释义：所需要获取的历史数据窗口长度，日间单位为交易日，日内单位为分钟。</li>
+                                <li>类型：整型</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>返回历史数据窗口，返回的数据类型为字典，键为start_price （表示开盘价）、end_price （表示收盘价）、updown（涨跌幅）、osci_ratio（振幅）、max_price（最高价）、min_price（最低价）、trade_volume（交易量）、trade_amount（成交额）、turnover_ratio（换手率）等，值为前time_range长度的该属性的值的numpy.array。</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <p>以日间回测为例，当 account.universe 包含'000001.XSHE' 时：</p>
+                <ul>
+                	<li>
+                    	<p>如果 symbol 值为证券代码：</p>
+                        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">def handle_data(account):</span><br/><span class="na">single_symbol_history = account.get_symbol_history('000001', 5)</span></code>
+                   </pre>
+                </div>
+                <p>single_symbol_history的值为：</p>
+                <div class="highlight">
+                	<pre>
+                		<code class="language-scss" data-lang="scss"><span class="na">{</span><br/><span class="na">	"osci_ratio": [3.57,1.85,2.59],</span><br/><span class="na">	"start_price": [13.87,13.82,13.93],</span><br/><span class="na">	"trade_volume": [124087752,101675328,93011672],</span><br/><span class="na">	"trade_amount": [1742179970,1408829950,1298739970],</span><br/><span class="na">	"end_price": [14.06,13.9,13.93],</span><br/><span class="na">	"trade_day": ["2015-01-28","2015-01-29","2015-01-30"],</span><br/><span class="na">	"min_price": [13.8,13.75,13.76],</span><br/><span class="na">	"updown": [0.5,-1.14,0.22],</span><br/><span class="na">	"turnover_ratio": [1.26,1.03,0.95],</span><br/><span class="na">	"max_price": [14.3,14.01,14.12]</span><br/><span class="na">}</span><br/></code>
+                	</pre>
+                </div>
+                    </li>
+                </ul>
+                
+            </li>
+        </ul>
+        
+        
+        
+        
+        
+        <h2 id="whats-included1-5">
+        	<a class="anchorjs-link " href="#whats-included1-5" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	下单
+        </h2>
+        <h3 id="whats-included1-5-1">
+        	<a class="anchorjs-link " href="#whats-included1-5-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	order
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">order(symbol, num)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>在handle_data(account)中使用。</p>
+                <p>含义为买入（卖出）数量为num的股票symbol。</p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>symbol：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码</li>
+                                <li>类型：字符串</li>
+                            </ul>
+                        </li>
+                        <li><code>num：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码为symbol的证券数量，为正则为买入，为负则为卖出；程序会自动对num向下取整到最近的整百。</li>
+                                <li>类型：浮点或整型</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>无</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1"># 每只股票买1手（100股）</span><br/><span class="na">def handle_data(account):</span><br/><span class="na">for s in account.universe:</span><br/><span class="na">order(s,100)</span></code>
+                   </pre>
+                </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-5-2">
+        	<a class="anchorjs-link " href="#whats-included1-5-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	order_to
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">order_to(symbol, num)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>在handle_data(account)中使用。</p>
+                <p>含义为买入（卖出）一定量的股票使得股票symbol交易后的数量为num。</p>
+                <p>后台实现为对order的包装</p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>symbol：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码</li>
+                                <li>类型：字符串</li>
+                            </ul>
+                        </li>
+                        <li><code>num：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码为symbol的证券数量，为正则为买入，为负则为卖出；程序会自动对num向下取整到最近的整百。</li>
+                                <li>类型：浮点或整型</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>无</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1"># 每只股票买至持仓1手（100股）</span><br/><span class="na">def handle_data(account):</span><br/><span class="na">for s in account.universe:</span><br/><span class="na">order_to(s,100)</span></code>
+                   </pre>
+                </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-5-3">
+        	<a class="anchorjs-link " href="#whats-included1-5-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	order_pct
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">order_pct(symbol, pct)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>在handle_data(account)中使用，向account.blotter中添加Order实例。</p>
+                <p>含义为买入（卖出）价值为虚拟账户当前总价值的pct部分的证券symbol，仅限市价单。</p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>symbol：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码</li>
+                                <li>类型：字符串</li>
+                            </ul>
+                        </li>
+                        <li><code>pct：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码为symbol的证券占虚拟账户当前总价值的百分比，范围为 -1 ~ 1，为正则为买入，为负则为卖出；程序会自动对计算出的下单数量向下取整到最近的整百。</li>
+                                <li>类型：浮点</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>无</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight">
+                	<pre>
+                		<code class="language-scss" data-lang="scss"><span class="c1"># 每只股票买入价值为虚拟账户当前总价值的10%</span><br/><span class="na">def handle_data(account):</span><br/><span class="na">for s in account.universe:</span><br/><span class="na">order_pct(s,0.1)</span>
+                		</code>
+                   	</pre>
+                </div>
+            </li>
+        </ul>
+        
+        <h3 id="whats-included1-5-4">
+        	<a class="anchorjs-link " href="#whats-included1-5-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	order_by5MAvg
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">order_by5MAvg(symbol, num)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>在handle_data(account)中使用，向account.blotter中添加Order实例。根据每天开盘后前五分钟的均价进行交易买卖。</p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>symbol：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码，必须包含后缀</li>
+                                <li>类型：字符串</li>
+                            </ul>
+                        </li>
+                        <li><code>num：</code>
+                        	<ul>
+                                <li>释义：需要交易的证券代码为symbol的证券数量，为正则为买入，为负则为卖出；程序会自动对amount向下取整到最近的整百。</li>
+                                <li>类型：浮点或整型</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>无</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight">
+                	<pre>
+                		<code class="language-scss" data-lang="scss"><span class="c1"># 使用开盘后前五分钟均价每只股票买入1手（100股）</span><br/><span class="na">def handle_data(account):</span><br/><span class="na">for s in account.universe:</span><br/><span class="na">order_by5MAvg(s,100)</span>
+                		</code>
+                   	</pre>
+                </div>
+            </li>
+        </ul>
+        
+        
+        <h2 id="whats-included1-6">
+        	<a class="anchorjs-link " href="#whats-included1-6" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	其他
+        </h2>
+        <h3 id="whats-included1-6-1">
+        	<a class="anchorjs-link " href="#whats-included1-6-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	commission（手续费）
+        </h3>
+        <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">Commission(buycost, sellcost, unit)</span></code>
+           </pre>
+        </div>
+        <ul>
+        	<li>
+            	<strong>释义</strong>
+                <p>手续费标准。</p>
+                <p>您可以在策略运行后，在回测详情中的调仓记录中查看订单成交价格。</p>
+            </li>
+            <li>
+            	<strong>参数</strong>
+                <ul>
+                    	<li><code>buycost：</code>
+                        	<ul>
+                                <li>释义：表示卖出手续费。</li>
+                                <li>类型：浮点</li>
+                            </ul>
+                        </li>
+                        <li><code>unit：</code>
+                        	<ul>
+                                <li>释义：表示手续费单位，支持 perValue 和 perShare 两种类型，前者为默认值。
+                                	<ul>
+                                    	<li>perValue 表示按股价百分比收取每股手续费；</li>
+                                        <li>perShare 表示按股数收取的每股手续费。</li>
+                                    </ul>
+                                </li>
+                                <li>类型：字符串</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+            	<strong>返回</strong>
+                <p>无</p>
+            </li>
+            <li>
+            	<strong>示例</strong>
+                <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">commission = Commission(buycost=0.001, sellcost=0.002, unit='perValue')</span></code>
+                   </pre>
+                </div>
+            </li>
+        </ul>
+        
+        
+        <!--DataAPI开始-->
+       	<h1 id="whats-included2" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included2" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	DataAPI相关方法
+        </h1>
+        
+        <h2 id="whats-included2-1">
+        	<a class="anchorjs-link " href="#whats-included2-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	DataAPI.TradeCalGet
+        </h2>
+        <div class="highlight">
+        	<pre>
+        		<code class="language-scss" data-lang="scss"><span class="na">DataAPI.TradeCalGet(exchangeCD="XSHG,XSHE",beginDate="",endDate="",field="",pandas=1)</span></code>
+           	</pre>
+        </div>
+        <p>记录了上海证券交易所,深圳证券交易所,中国银行间市场,大连商品交易所,郑州商品交易所,上海期货交易所,中国金融期货交易所和香港交易所等交易所在日历日期当天是否开市的信息，其中上证、深证记录了自成立以来的全部日期是否开始信息。各交易日节假日安排通知发布当天即更新数据。</p>
+        <h3>参数</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>exchangeCD</td>
+							<td>list</td>
+							<td>证券交易所。可选：XSHG，XSHE，CCFX，XDCE，XSGE，XZCE，XHKG。XSHG表示上海证券交易所，XSHE表示深圳证券交易所，CCFX表示中国金融期货交易所，XDCE表示大连商品交易所，XSGE表示上海期货交易所，XZCE表示郑州商品交易所，XHKG表示香港证券交易所。可同时输入多个证券交易所,可以是列表</td>
+						</tr>
+						<tr>
+							<td>beginDate</td>
+							<td>str</td>
+							<td>起始日期，输入格式“YYYY--MM--DD”,可空</td>
+						</tr>
+						<tr>
+							<td>endDate</td>
+							<td>str</td>
+							<td>截止日期，输入格式“YYYY--MM--DD”,可空</td>
+						</tr>
+						<tr>
+							<td>field</td>
+							<td>list</td>
+							<td>所需字段,可以是列表,可空</td>
+						</tr>
+						<tr>
+							<td>pandas</td>
+							<td>str</td>
+							<td>1表示返回 pandas data frame，0表示返回csv,可空</td>
+						</tr>
+					</tbody>
+				</table>
+            <h3>可选返回值</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>exchangeCD</td>
+							<td>str</td>
+							<td>证券交易所</td>
+						</tr>
+						<tr>
+							<td>calendarDate</td>
+							<td>str</td>
+							<td>日期</td>
+						</tr>
+						<tr>
+							<td>isOpen</td>
+							<td>int</td>
+							<td>日期当天是否开市。0表示否，1表示是</td>
+						</tr>
+						<tr>
+							<td>prevTradeDate</td>
+							<td>str</td>
+							<td>当前日期前一交易日</td>
+						</tr>
+						<tr>
+							<td>isWeekEnd</td>
+							<td>int</td>
+							<td>当前日期是否当周最后交易日。0表示否，1表示是</td>
+						</tr>
+						<tr>
+							<td>isMonthEnd</td>
+							<td>int</td>
+							<td>当前日期是否当月最后交易日。0表示否，1表示是</td>
+						</tr>
+						<tr>
+							<td>isQuarterEnd</td>
+							<td>int</td>
+							<td>当前日期是否当季最后交易日。0表示否，1表示是</td>
+						</tr>
+						<tr>
+							<td>isYearEnd</td>
+							<td>int</td>
+							<td>当前日期是否当年最后交易日。0表示否，1表示是</td>
+						</tr>
+					</tbody>
+				</table>
+            
+        
+        <h2 id="whats-included2-2">
+        	<a class="anchorjs-link " href="#whats-included2-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	DataAPI.MktStockFactorsOneDayGet
+        </h2>
+        <div class="highlight">
+        	<pre>
+        		<code class="language-scss" data-lang="scss"><span class="na">DataAPI.MktStockFactorsOneDayGet(tradeDate="2015-02-27",secID="",field="ticker,tradeDate,pe",pandas=1)</span></code>
+           	</pre>
+        </div>
+        <p>高频数据，获取多只股票历史上某一天的因子数据</p>
+        <h3>参数</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>tradeDate</td>
+							<td>str</td>
+							<td>日期</td>
+						</tr>
+						<tr>
+							<td>secID</td>
+							<td>list</td>
+							<td>多只股票ID，用逗号隔开,可以是列表,可空</td>
+						</tr>
+						<tr>
+							<td>field</td>
+							<td>list</td>
+							<td>所需字段,可以是列表,可空</td>
+						</tr>
+						<tr>
+							<td>pandas</td>
+							<td>str</td>
+							<td>1表示返回 pandas data frame，0表示返回csv,可空</td>
+						</tr>
+					</tbody>
+				</table>
+            <h3>可选返回值</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>reportDay</td>
+							<td>str</td>
+							<td>日期</td>
+						</tr>
+						<tr>
+							<td>stock_code</td>
+							<td>str</td>
+							<td>股票代码</td>
+						</tr>
+						<tr>
+							<td>ma5</td>
+							<td>float</td>
+							<td>5日移动均线（Moving average）。取最近N天的前复权价格的均值。属于均线型因子</td>
+						</tr>
+						<tr>
+							<td>ma10</td>
+							<td>float</td>
+							<td>10日移动均线（Moving average）。取最近N天的前复权价格的均值。属于均线型因子</td>
+						</tr>
+						<tr>
+							<td>eps</td>
+							<td>float</td>
+							<td>基本每股收益（Earnings per share）。属于每股指标因子</td>
+						</tr>
+						<tr>
+							<td>egro</td>
+							<td>float</td>
+							<td>5年收益增长率（Five-year earnings growth）。计算方法：5 年收益增长率= 5年收益关于时间（年）进行线性回归的回归系数/5 年收益均值的绝对值。属于盈利能力和收益质量类因子。</td>
+						</tr>
+					</tbody>
+				</table>
+            
+        
+        <h2 id="whats-included2-3">
+        	<a class="anchorjs-link " href="#whats-included2-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	DataAPI.MktEqudAdjGet
+        </h2>
+        <div class="highlight">
+        	<pre>
+        		<code class="language-scss" data-lang="scss"><span class="na">DataAPI.MktEqudAdjGet(secID="" ,beginDate="",endDate="",field="",pandas=1)</span></code>
+           	</pre>
+        </div>
+        <p>获取获取沪深A股和B股前复权日行情信息，包含前复权昨收价、前复权开盘价、前复权最高价、前复权最低价、前复权收盘价。</p>
+        <h3>参数</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>secID</td>
+							<td>list</td>
+							<td>输入证券代码，格式是“数字.交易所代码”，如000001。,可以是列表</td>
+						</tr>
+						<tr>
+							<td>beginDate</td>
+							<td>str</td>
+							<td>起始日期，输入格式“YYYY--MM--DD”,可空</td>
+						</tr>
+						<tr>
+							<td>endDate</td>
+							<td>str</td>
+							<td>截止日期，输入格式“YYYY--MM--DD”,可空</td>
+						</tr>
+						<tr>
+							<td>field</td>
+							<td>list</td>
+							<td>所需字段,可以是列表,可空</td>
+						</tr>
+						<tr>
+							<td>pandas</td>
+							<td>str</td>
+							<td>1表示返回 pandas data frame，0表示返回csv,可空</td>
+						</tr>
+					</tbody>
+				</table>
+            <h3>可选返回值</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>calendarDate</td>
+							<td>str</td>
+							<td>日期</td>
+						</tr>
+						<tr>
+							<td>yesterday_end_price</td>
+							<td>float</td>
+							<td>昨收盘(前复权)</td>
+						</tr>
+						<tr>
+							<td>start_price</td>
+							<td>float</td>
+							<td>今开盘(前复权)</td>
+						</tr>
+						<tr>
+							<td>max_price</td>
+							<td>float</td>
+							<td>最高价(前复权)</td>
+						</tr>
+						<tr>
+							<td>min_price</td>
+							<td>float</td>
+							<td>最低价(前复权)</td>
+						</tr>
+						<tr>
+							<td>end_price</td>
+							<td>float</td>
+							<td>今收盘(前复权)</td>
+						</tr>
+						<tr>
+							<td>trade_volume</td>
+							<td>float</td>
+							<td>成交量</td>
+						</tr>
+						<tr>
+							<td>trade_amount</td>
+							<td>float</td>
+							<td>成交金额</td>
+						</tr>
+					</tbody>
+				</table>
+        
+        
+        <h2 id="whats-included2-4">
+        	<a class="anchorjs-link " href="#whats-included2-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	DataAPI. MktFutdVolGet
+        </h2>
+        <div class="highlight">
+        	<pre>
+        		<code class="language-scss" data-lang="scss"><span class="na">DataAPI.MktEqudAdjGet(secID="" ,beginDate="",endDate="",field="",pandas=1)</span></code>
+           	</pre>
+        </div>
+        <p>获取中金所IF,IC,IH期货合约行情信息。</p>
+        <h3>参数</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>secID</td>
+							<td>list</td>
+							<td>输入证券代码，格式是“数字.交易所代码”，如000001。,可以是列表</td>
+						</tr>
+						<tr>
+							<td>beginDate</td>
+							<td>str</td>
+							<td>起始日期，输入格式“YYYY--MM--DD”,可空</td>
+						</tr>
+						<tr>
+							<td>endDate</td>
+							<td>str</td>
+							<td>截止日期，输入格式“YYYY--MM--DD”,可空</td>
+						</tr>
+						<tr>
+							<td>field</td>
+							<td>list</td>
+							<td>所需字段,可以是列表,可空</td>
+						</tr>
+						<tr>
+							<td>pandas</td>
+							<td>str</td>
+							<td>1表示返回 pandas data frame，0表示返回csv,可空</td>
+						</tr>
+					</tbody>
+				</table>
+            <h3>可选返回值</h3>
+            	<table class="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>类型</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>tradingday</td>
+							<td>str</td>
+							<td>交易日期</td>
+						</tr>
+						<tr>
+							<td>instrumentid</td>
+							<td>str</td>
+							<td>合约编码</td>
+						</tr>
+						<tr>
+							<td>openprice</td>
+							<td>float</td>
+							<td>今开盘</td>
+						</tr>
+						<tr>
+							<td>highestprice</td>
+							<td>float</td>
+							<td>最高价</td>
+						</tr>
+						<tr>
+							<td>lowestprice</td>
+							<td>float</td>
+							<td>最低价</td>
+						</tr>
+						<tr>
+							<td>closeprice</td>
+							<td>float</td>
+							<td>今收盘</td>
+						</tr>
+						<tr>
+							<td>settlementprice</td>
+							<td>float</td>
+							<td>结算价</td>
+						</tr>
+						<tr>
+							<td>presettlementprice</td>
+							<td>float</td>
+							<td>昨结算</td>
+						</tr>
+						<tr>
+							<td>openinterest</td>
+							<td>int</td>
+							<td>持仓量，单位为手</td>
+						</tr>
+						<tr>
+							<td>volume</td>
+							<td>int</td>
+							<td>成交数量，单位为手</td>
+						</tr>
+						<tr>
+							<td>turnover</td>
+							<td>float</td>
+							<td>换手率</td>
+						</tr>
+					</tbody>
+				</table> 
+        
+	</div>
+    </div>
+</div><!-- /.container -->
+    

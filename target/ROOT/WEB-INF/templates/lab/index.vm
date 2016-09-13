@@ -1,0 +1,71 @@
+#define($cssHtml)
+<link href="/libs/css/lab/model_new.css" rel="stylesheet" type="text/css">
+#end
+
+<div style="padding: 0 15px;">
+
+	#if($!userStrategyNameList.size() == 0)
+		#parse("lab/index_initial.vm")
+	#else
+
+	<div class="row">
+	  <div class="col-md-11 col-md-offset-1">
+	    <h3 class="sub-title">最近修改的策略</h3>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-md-3 col-md-offset-1">
+	      #foreach($!item in $!userStrategyNameList)
+	      	<h4 class="h4"><a href="/lab/lab_coding.html?id=$!{item.id}">$!item.strategyName</a></h4>
+	      #end
+	
+	  </div>
+	  <div class="col-md-8">
+	    <div class="row">
+	      <div class="col-md-4">
+	        <div class="blcok">
+	          <div class="section">
+	            <a href="#" id="submit_code_init">
+		          <div class="block-left">
+		            <img src="../libs/images/right_04.png" height="60px">
+		          </div>
+		          <div class="block-right">
+		             <h4>新建策略</h4>		            
+		          </div>
+	            </a>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-md-4">
+	        <div class="blcok">
+	          <div class="section">
+	          	<a href="#" data-toggle="modal" data-target="#myModal" style="outline: none;">
+	              <div class="block-left">
+	                <img src="../libs/images/right_05.png" height="60px">
+	              </div>
+	              <div class="block-right">
+	                <h4>策略生成器</h4>	                
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	#end
+	
+	#parse("lab/index_model.vm")
+	
+</div>
+
+
+#define($scriptHtml)
+
+	<!-- load ace -->
+    <script src="/ace/js/ace.js"></script>
+    <script src="/ace/js/ext-static_highlight.js"></script>
+    <script src="/libs/js/lab/lab-index.js"></script>
+    
+#end

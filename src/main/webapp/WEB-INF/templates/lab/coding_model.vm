@@ -1,0 +1,680 @@
+#define($cssHtml)
+
+<link href="/libs/css/lab/webnote.css" rel="stylesheet" />
+
+<style>
+.persent{
+	width:360px;
+	height:34px;
+	background:#e2e1e1;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position:fixed;
+	bottom:4px;
+	right:4px;
+	z-index:99998;
+	margin:0px;
+	line-height:38px;
+	padding:0px;
+	padding-left:15px;
+	cursor:pointer;
+	border-radius:3px;
+	}
+.persent li{
+	list-style:none;
+	float:left;
+	color:#6c7a81;
+	padding:0px;
+	margin:0px;
+	text-align:left;
+	margin-right:15px;
+	width:100px;}
+.cpu,.rom,.ram{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	vertical-align:middle;
+	margin-right:4px;}
+.cpu{
+	background:url(/libs/images/cpu/cpu_cpu.png) no-repeat;}
+.rom{
+	background:url(/libs/images/cpu/cpu_rom.png) no-repeat;}
+.ram{
+	background:url(/libs/images/cpu/cpu_ram.png) no-repeat;}
+.resource{
+	width:360px;
+	height:170px;
+	padding:15px;
+	position:fixed;
+	bottom:38px;
+	right:4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	z-index:99999;
+	background:#e2e1e1;
+	border-radius:3px;
+	}
+.resource h3{
+	font-size:14px;
+	width:340px;
+	font-weight:bold;
+	color:#101010;
+	margin:0px;
+	margin-bottom:20px;}
+.resource h3 a{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	float:right;
+	border:none;
+	outline:none;
+	background:url(/libs/images/cpu/cpu_close.png) no-repeat;
+	cursor:pointer;}
+.cpurow{
+	padding:0px;
+	margin:0px;
+	margin-bottom:15px;}
+.cpurow span{
+	display:inline-block;
+	text-align:left;
+	color:#101010;
+	font-size:14px;
+	vertical-align:middle;
+	}
+	
+.cpurow .progress{
+	width:160px;
+	display:inline-block;
+	margin-bottom:0px;
+	vertical-align:top;}
+</style>
+
+#end
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">回测详情<small>
+        ##--配置：从<b>2015-09-03</b>至<b>2016-03-04</b>初始资金￥<b>1,000,000</b>（<b>每日</b>交易数据）</small>
+        </h4>
+      </div>
+      <div class="modal-body">
+		<div class="modal_tree">
+            <ul class="list-group" role="tablist">
+               <li class="list-group-item active"><a href="#tab01" aria-contrlos="tab01" role="tab" data-toggle="tab">策略概况</a></li>
+               <li class="list-group-item"><a href="#tab02" aria-contrlos="tab02" role="tab" data-toggle="tab">调仓记录</a></li>
+               <li class="list-group-item"><a href="#tab03" aria-contrlos="tab03" role="tab" data-toggle="tab">持仓记录</a></li>
+               <li class="list-group-item"><a href="#tab04" aria-contrlos="tab04" role="tab" data-toggle="tab">输出日志</a></li>
+               <li class="list-group-item"><a href="#tab05" aria-contrlos="tab05" role="tab" data-toggle="tab">详细配置</a></li>
+               <li role="separator" class="divider list-group-item" style="height:34px;"></li>
+               <li class="list-group-item"><a href="#tab06" aria-contrlos="tab06" role="tab" data-toggle="tab">收益率</a></li>
+               <li class="list-group-item"><a href="#tab07" aria-contrlos="tab07" role="tab" data-toggle="tab">阿尔法</a></li>
+               <li class="list-group-item"><a href="#tab08" aria-contrlos="tab08" role="tab" data-toggle="tab">贝塔</a></li>
+               <li class="list-group-item"><a href="#tab09" aria-contrlos="tab09" role="tab" data-toggle="tab">夏普比率</a></li>
+               <li class="list-group-item"><a href="#tab10" aria-contrlos="tab10" role="tab" data-toggle="tab">收益波动率</a></li>
+               <li class="list-group-item"><a href="#tab11" aria-contrlos="tab11" role="tab" data-toggle="tab">信息比例</a></li>
+               <li class="list-group-item"><a href="#tab12" aria-contrlos="tab12" role="tab" data-toggle="tab">最大回撤</a></li>
+            </ul>
+		</div>
+		<div class="model_cont tab-content">
+        	<div role="tabpanel" class="tab-pane active" id="tab01">
+            	<div class="panelname"><span>策略详情</span></div>
+            	<ul class="result-value" id="result_strategy_desc">
+            	</ul>
+            	<div style="height: 430px;width: 800px;" id="tab01_chart"></div>
+            </div>
+           #*
+            <div role="tabpanel" class="tab-pane" id="tab02">
+            	<!--调仓记录-div处理-->
+                <div class="panelname"><span>调仓记录</span>
+                    <a class="toolnormal tool11"><em>展开全部</em></a>
+                    <a class="toolnormal tool12"><em>收起全部</em></a>
+                    <a class="toolnormal tool13"><em>导出CSV</em></a>
+                    <!--<a class="toolnormal redfont">清除条件</a>-->
+                </div>
+                <div class="fixedtable">
+                	<div class="fixedrow">
+                    	<table  width="100%" border="0" >
+                        	<thead>
+                            	<tr>
+                                	<th width="16%" class="fixedrowtd">下单/成交时间<a class="tooldata"></a><a class="tooledit"></a></th>
+                                    <th width="15%" class="fixedrowtd">证券代码<a class="tooledit"></a></th>
+                                    <th width="7%" class="fixedrowtd">买/卖<a class="tooledit"></a></th>
+                                    <th width="19%" class="fixedrowtd">下单/成交数量（股）<a class="tooledit"></a></th>
+                                    <th width="15%" class="fixedrowtd">下单/成交价格<a class="tooledit"></a></th>
+                                    <th width="10%" class="fixedrowtd">股票头寸<a class="tooledit"></a></th>
+                                    <th width="8%" class="fixedrowtd">佣金<a class="tooledit"></a></th>
+                                    <th width="10%" class="fixedrowtd">订单状态<a class="tooledit"></a></th>
+                                </tr>
+                            </thead>
+                        </table>
+                   </div>
+                   <!--以上是固定表头-->
+                   <div class="scrolltable">
+                   		<table  width="100%" border="0" >
+                        	<thead style="visibility:hidden;">
+                            	<tr>
+                                	<th width="16%"></th>
+                                    <th width="15%"></th>
+                                    <th width="7%"></th>
+                                    <th width="19%"></th>
+                                    <th width="15%"></th>
+                                    <th width="10%"></th>
+                                    <th width="8%"></th>
+                                    <th width="10%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	<tr>
+                                	<td colspan="8"><a class="toolpack"></a><span class="scrolltime">2015-09-07</span><span class="redfont">买85,654,00</span>共3个订单</td>
+                                </tr>
+                                <!--展开3行的列表-->
+                                <tr>
+                                	<td colspan="8"><a class="toolopen"></a><span class="scrolltime">2015-09-07</span><span class="redfont">买85,654,00</span>共3个订单</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <!--展开列表结束-->
+                                <!--展开3行的列表-->
+                                <tr>
+                                	<td colspan="8"><a class="toolopen"></a><span class="scrolltime">2015-09-07</span><span class="redfont">买85,654,00</span>共3个订单</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <!--展开列表结束-->
+                                <!--展开3行的列表-->
+                                <tr>
+                                	<td colspan="8"><a class="toolopen"></a><span class="scrolltime">2015-09-07</span><span class="redfont">买85,654,00</span>共3个订单</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <!--展开列表结束-->
+                                <!--展开3行的列表-->
+                                <tr>
+                                	<td colspan="8"><a class="toolopen"></a><span class="scrolltime">2015-09-07</span><span class="redfont">买85,654,00</span>共3个订单</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <!--展开列表结束-->
+                                <!--展开3行的列表-->
+                                <tr>
+                                	<td colspan="8"><a class="toolopen"></a><span class="scrolltime">2015-09-07</span><span class="redfont">买85,654,00</span>共3个订单</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <tr class="openrow">
+                                	<td>09:30/09:30</td>
+                                    <td>300024145.XSHE</td>
+                                    <td><span class="redfont">买入</span></td>
+                                    <td class="textright">900/922</td>
+                                    <td class="textright">市价/12.54</td>
+                                    <td class="textright">12,854,20</td>
+                                    <td class="textright">15.21</td>
+                                    <td>全部成交</td>
+                                </tr>
+                                <!--展开列表结束-->
+                            </tbody>
+                        </table>
+                   </div>
+                </div>
+                <!--调仓结束-->
+            </div>
+            *#
+             <div role="tabpanel" class="tab-pane" id="tab02">
+            	<!--调仓记录-div处理-->
+                <div class="panelname"><span>调仓记录</span>
+                    <!--
+                    <a class="toolnormal tool11"><em>展开全部</em></a>
+                    <a class="toolnormal tool12"><em>收起全部</em></a>
+                    <a class="toolnormal tool13"><em>导出CSV</em></a>
+                    -->
+                    <!--<a class="toolnormal redfont">清除条件</a>-->
+                </div>
+                <div class="fixedtable">
+                	<div class="fixedrow">
+                    	<table  width="100%" border="0" >
+                        	<thead>
+                            	<tr>
+                                    <th width="16%" class="fixedrowtd">下单/成交时间</th>
+                                    <th width="15%" class="fixedrowtd">证券代码</th>
+                                    <th width="7%" class="fixedrowtd">买/卖</th>
+                                    <th width="19%" class="fixedrowtd">下单/成交数量（股）</th>
+                                    <th width="15%" class="fixedrowtd">下单/成交价格</a></th>
+                                    <th width="10%" class="fixedrowtd">成交额</th>
+                                    <th width="8%" class="fixedrowtd">佣金</th>
+                                    <th width="10%" class="fixedrowtd">订单状态</th>
+                                </tr>
+                            </thead>
+                        </table>
+                   </div>
+                   <!--以上是固定表头-->
+                   <div class="scrolltable">
+                   		<table  width="100%" border="0" >
+                        	<thead style="visibility:hidden;">
+                            	<tr>
+                                	<th width="16%"></th>
+                                    <th width="15%"></th>
+                                    <th width="7%"></th>
+                                    <th width="19%"></th>
+                                    <th width="15%"></th>
+                                    <th width="10%"></th>
+                                    <th width="8%"></th>
+                                    <th width="10%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	
+                            </tbody>
+                        </table>
+                   </div>
+                </div>
+                <!--调仓结束-->
+            </div>
+            <!--持仓记录tab代码开始-->
+            <!--代码部分begin-->
+            <div role="tabpanel" class="tab-pane tabmenu" id="tab03">
+            <!--tag标题-->
+                <ul id="nav" class="nav_model">
+                    <li class="li1"><a href="#" class="selected">持仓记录</a></li>
+                    <li class="li2"><a href="#" class="">仓位图</a></li>
+                </ul>
+            <!--二级菜单-->
+                <div id="menu_con">
+                    <div class="tag" style="display:block">
+                        <div class="fixedtable">
+                                <div class="fixedrow">
+                                    <table  width="100%" border="0" >
+                                        <thead>
+                                            <tr>
+                                                <th width="15%" class="fixedrowtd">日期</th>
+                                                <th width="25%" class="fixedrowtd">持仓资金</th>
+                                                <th width="25%" class="fixedrowtd">剩余资金</th>
+                                                <th width="35%" class="fixedrowtd">持仓市值</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                               </div>
+                               <!--以上是固定表头-->
+                               <div class="scrolltable">
+                                    <table  width="100%" border="0" >
+                                        <thead style="visibility:hidden;">
+                                            <tr>
+                                                <th width="15%"></th>
+                                                <th width="25%"></th>
+                                                <th width="25%"></th>
+                                                <th width="35%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>09:30/09:30</td>
+                                                <td class="textright">900/922</td>
+                                                <td class="textright">12,854,20</td>
+                                                <td class="textright">15.21</td>
+                                            </tr>
+                                            <!--展开列表结束-->
+                                        </tbody>
+                                    </table>
+                               </div>
+                            </div>
+                            <!--固定表头结束-->
+                     </div> 
+                    <div class="tag" style="display:none">
+                    	<div style="display:none">
+                    		<div class="fixedtable">
+                        		<div class="fixedrow">
+                        		</div>
+                        	</div>
+                        </div>
+                        <div id="tab03_chart" style="width: 800px;" >
+                        </div>
+                    </div> 
+            	</div>
+            </div>
+            <!--代码结束-->
+            <script>
+			var tabs=function(){
+				function tag(name,elem){
+					return (elem||document).getElementsByTagName(name);
+				}
+				//获得相应ID的元素
+				function id(name){
+					return document.getElementById(name);
+				}
+				function first(elem){
+					elem=elem.firstChild;
+					return elem&&elem.nodeType==1? elem:next(elem);
+				}
+				function next(elem){
+					do{
+						elem=elem.nextSibling;  
+					}while(
+						elem&&elem.nodeType!=1  
+					)
+					return elem;
+				}
+				return {
+					set:function(elemId,tabId){
+						var elem=tag("li",id(elemId));
+						var tabs=tag("div",id(tabId));
+						var listNum=elem.length;
+						var tabNum=tabs.length;
+						for(var i=0;i<listNum;i++){
+								elem[i].onclick=(function(i){
+									return function(){
+										for(var j=0;j<tabNum;j++){
+											if(i==j){
+												tabs[j].style.display="block";
+												//alert(elem[j].firstChild);
+												elem[j].firstChild.className="selected";
+											}
+											else{
+												tabs[j].style.display="none";
+												elem[j].firstChild.className="";
+											}
+										}
+									}
+								})(i)
+						}
+					}
+				}
+			}();
+			tabs.set("nav","menu_con");//执行
+			</script>
+            <div role="tabpanel" class="tab-pane" id="tab04">
+				<div class="panelname"><span>输出日志</span></div>
+				<div class="log">暂无</div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab05">
+            	<!--配置-->
+				<div class="panelname"><span>详细配置</span></div>
+                <div id="tab05_con">
+                	##<h6><span class="gray">买入时间：</span><span class="black">2014-03-04</span></h6>
+                </div>
+            </div>
+            
+            <div role="tabpanel" class="tab-pane" id="tab06">
+            	<!--第二种列表-->
+                <div class="panelname"><span>收益率</span></div>
+                <div class="scrolltable">
+                	<table width="100%" border="0" class="table table-condensed">
+                    	<thead>
+		                    <tr>
+			                    <th rowspan="2" style="line-height:50px;">日期</th>
+			                    <th colspan="3" class="text-center">1个月</th>
+			                    <th colspan="3" class="text-center">3个月</th>
+			                    <th colspan="3" class="text-center">6个月</th>
+			                    <th colspan="3" class="text-center">12个月</th>
+		                    </tr>
+		                    <tr>
+			                    <th>策略</th>
+			                    <th>基准</th>
+			                    <th>超额</th>
+			                    <th>策略</th>
+			                    <th>基准</th>
+			                    <th>超额</th>
+			                    <th>策略</th>
+			                    <th>基准</th>
+			                    <th>超额</th>
+			                    <th>策略</th>
+			                    <th>基准</th>
+			                    <th>超额</th>
+		                    </tr>
+                    
+                    	</thead>
+	                    <tbody>
+	                    </tbody>
+                    </table>
+            	</div>
+            </div>
+	        <div role="tabpanel" class="tab-pane" id="tab07">
+				<div class="panelname"><span>阿尔法</span></div>
+	        	<div class="scrolltable">
+					<table width="100%" border="0" class="table table-condensed">
+						<thead>
+					        <tr>
+		                    	<th class="text-center">日期</th>
+		                    	<th class="text-center">1个月</th>
+		                    	<th class="text-center">3个月</th>
+		                    	<th class="text-center">6个月</th>
+		                    	<th class="text-center">12个月</th>
+		                    </tr>
+					    </thead>
+					    <tbody>
+					    </tbody>
+					</table>
+                </div>
+	        </div>
+	        <div role="tabpanel" class="tab-pane" id="tab08">
+				<div class="panelname"><span>贝塔</span></div>
+	        	<div class="scrolltable">
+					<table width="100%" border="0" class="table table-condensed">
+						<thead>
+					        <tr>
+		                    	<th class="text-center">日期</th>
+		                    	<th class="text-center">1个月</th>
+		                    	<th class="text-center">3个月</th>
+		                    	<th class="text-center">6个月</th>
+		                    	<th class="text-center">12个月</th>
+		                    </tr>
+					    </thead>
+					    <tbody>
+					    </tbody>
+					</table>
+                </div>
+	        </div>
+	        <div role="tabpanel" class="tab-pane" id="tab09">
+				<div class="panelname"><span>夏普比率</span></div>
+	        	<div class="scrolltable">
+					<table width="100%" border="0" class="table table-condensed">
+						<thead>
+					        <tr>
+		                    	<th class="text-center">日期</th>
+		                    	<th class="text-center">1个月</th>
+		                    	<th class="text-center">3个月</th>
+		                    	<th class="text-center">6个月</th>
+		                    	<th class="text-center">12个月</th>
+		                    </tr>
+					    </thead>
+					    <tbody>
+					    </tbody>
+					</table>
+                </div>
+	        </div>
+	        <div role="tabpanel" class="tab-pane" id="tab10">
+				<div class="panelname"><span>收益波动率</span></div>
+	        	<div class="scrolltable">
+					<table width="100%" border="0" class="table table-condensed">
+						<thead>
+					        <tr>
+		                    	<th class="text-center">日期</th>
+		                    	<th class="text-center">1个月</th>
+		                    	<th class="text-center">3个月</th>
+		                    	<th class="text-center">6个月</th>
+		                    	<th class="text-center">12个月</th>
+		                    </tr>
+					    </thead>
+					    <tbody>
+					    </tbody>
+					</table>
+                </div>
+	        </div>
+	        <div role="tabpanel" class="tab-pane" id="tab11">
+				<div class="panelname"><span>信息比例</span></div>
+	        	<div class="scrolltable">
+					<table width="100%" border="0" class="table table-condensed">
+						<thead>
+					        <tr>
+		                    	<th class="text-center">日期</th>
+		                    	<th class="text-center">1个月</th>
+		                    	<th class="text-center">3个月</th>
+		                    	<th class="text-center">6个月</th>
+		                    	<th class="text-center">12个月</th>
+		                    </tr>
+					    </thead>
+					    <tbody>
+					    </tbody>
+					</table>
+                </div>
+	        </div>
+	        <div role="tabpanel" class="tab-pane" id="tab12">
+				<div class="panelname"><span>最大回测</span></div>
+	        	<div class="scrolltable">
+					<table width="100%" border="0" class="table table-condensed">
+						<thead>
+					        <tr>
+		                    	<th class="text-center">日期</th>
+		                    	<th class="text-center">1个月</th>
+		                    	<th class="text-center">3个月</th>
+		                    	<th class="text-center">6个月</th>
+		                    	<th class="text-center">12个月</th>
+		                    </tr>
+					    </thead>
+					    <tbody>
+					    </tbody>
+					</table>
+                </div>
+	        </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      #**
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      *#
+    </div>
+  </div>
+</div>

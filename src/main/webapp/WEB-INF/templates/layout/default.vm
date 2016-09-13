@@ -1,0 +1,46 @@
+#* @vtlvariable name="receiverName" type="java.lang.String" *#
+#* @vtlvariable name="screen_content" type="java.lang.String" *#
+
+#set($menu="strategy")
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+#parse("common/head.vm")
+
+  <!-- BODY BEGIN -->
+
+  <body>
+
+	#parse("common/body_head.vm")
+
+	<!-- CONTAINER BEGIN -->
+    <div class="container-fluid">
+      <div class="row">
+      
+      	<!-- SIDEBAR BEGIN -->
+      
+		<div class="col-sm-1 col-md-1 sidebar">
+	  		#parse("common/body_sidebar.vm")
+		</div>
+		
+		<!-- SIDEBAR END -->
+		
+		<!-- PAGE BEGIN -->
+		
+		<div class="col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 main">$screen_content</div>
+		<!-- PAGE END -->
+		
+      </div>
+    </div>
+
+	<!-- CONTAINER END -->
+	<div id="prefix" style="display: none;">$!homeModule.getTarget("")</div>
+	#parse("common/body_footer.vm")
+
+  </body>
+  
+  <!-- BODY END -->
+  
+</html>
+ 

@@ -1,0 +1,264 @@
+#set($layout="layout/default_help.vm")
+#set($menu="data")
+#set($bar="data")
+#define($cssHtml)
+<link href="$homeModule.getTarget("/libs/css/patch.css")" rel="stylesheet" type="text/css">
+#end
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" role="complementary">
+      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+        <ul class="nav bs-docs-sidenav">
+          
+          <li class="active">
+            <a href="#whats-included">关于Quanti</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included-1">Quanti能提供什么服务</a></li>
+              <li><a href="#whats-included-2">Quanti收费吗</a></li>
+              <li><a href="#whats-included-3">知识产权与安全保障</a></li>
+              <li><a href="#whats-included-4">Quanti有什么数据</a></li>
+              <li><a href="#whats-included-5">支持哪些Python模块</a></li>
+            </ul>
+
+          </li>
+          <li>
+            <a href="#whats-included1">指数数据</a>
+          </li>
+          <li>
+            <a href="#whats-included2">策略回测</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included2-1">回测的目的</a></li>
+              <li><a href="#whats-included2-2">怎么实现回测</a></li>
+            </ul>
+          </li>
+		  <li>
+            <a href="#whats-included3">其他研究功能</a>
+            <ul class="nav navtwo">
+              <li><a href="#whats-included3-1">代码补全与提示</a></li>
+              <li><a href="#whats-included3-2">快捷键</a></li>
+            </ul>
+          </li>
+		  
+        </ul>
+        <a class="back-to-top" href="#top">
+			 返回顶部
+        </a>
+        
+      </nav>
+    </div>
+    
+	<div class="col-md-9" role="main">
+
+      <div class="bs-docs-section">
+      
+        <h1 id="whats-included" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	关于Quanti
+        </h1>
+        <p>『Quanti』是您的私人的量化研究与交易云平台。</p>
+        <p>我们旨在打破金融量化的壁垒，为广大量化爱好者提供华尔街专业量化机构的装备。</p>
+        
+        <h2 id="whats-included-1">
+        	<a class="anchorjs-link " href="#whats-included-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	Quanti能提供什么服务
+        </h2>
+        <p>您在Quanti中，可以享受到如下服务：</p>
+        <ol>
+        	<li>
+            	<strong>高质量大数据免费使用：</strong><br/>
+                沪深股票、港股、基金、期货、债券、期权、指数、板块、宏观等海量数据。
+            </li>
+            <li>
+            	<strong>专业、高效的量化研究工具：</strong><br/>
+                快捷获取海量数据，定制的Python量化分析环境，采用虚拟机技术，安全、稳定、强大。
+            </li>
+            <li>
+            	<strong>策略回测：</strong><br/>
+                提供高效、专业的quartz交易回测框架，使得您可以专注于描述交易算法逻辑，而不必关心底层的实现细节，同时快速获得策略表现评估。<br/>
+                目前支持股票的分钟线和日线回测。
+            </li>
+        </ol>
+
+        <h2 id="whats-included-2">
+        	<a class="anchorjs-link " href="#whats-included-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	Quanti收费吗
+        </h2>
+        <p>Quanti是为广大量化爱好者提供的专业量化平台，用专业的工具、海量的金融数据、高速的回测体验，让所有用户都能免费体验量化投资工具带来的红利。</p>
+        <ul>
+        	<li>Quanti为每个用户分配了<strong>免费</strong>的云端量化研究环境。</li>
+            <li>Quanti为每个用户提供了<strong>免费</strong>的海量高质量有效数据。</li>
+        </ul>
+        <h2 id="whats-included-3">
+        	<a class="anchorjs-link " href="#whats-included-3" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	知识产权与安全保障
+        </h2>
+        <p>策略是每个quant最宝贵的财富，您全权拥有在Quanti中研究成果的知识产权。Quanti不会也无法查看、公布您的策略、代码、数据。</p>
+        <p>Quanti也会竭尽全力捍卫您的代码安全以及所有权。</p>
+        <ol>
+        	<li>您在Quanti的所有研究策略，其知识产权100%均归您本人所有。</li>
+            <li>尊重用户隐私数据是Quanti的一贯原则，Quanti会竭尽全力通过各种技术手段、强化内部管理等办法保障您的隐私数据的安全。</li>
+        </ol>
+            	<ul>
+                	<li><strong>Https加密通道：</strong>全程保障您在Quanti使用期间的数据传输安全。</li>
+                    <li><strong>用户数据加密：</strong>您的隐私数据以加密方式存储，让您的研究和交易环境只属于您一个人。</li>
+                    <li><strong>独立隔离的研究环境：</strong>Quanti为每个用户分配安全独立的虚拟机，虚拟机之间完全隔离，确保您的隐私研究和交易环境环境不受其他用户的侵扰。</li>
+                    <li><strong>安全运行机制：</strong>Quanti从python运行机制入手，在研究和交易环境限制用户使用底层系统方法，同时采用恶意代码过滤机制，从根源上遏制了外部用户的入侵。</li>
+                    <li><strong>定期安全检测：</strong>Quanti定期展开安全测评，以确保您使用的研究和交易环境安全稳定。</li>
+                    <li><strong>数据灾备与恢复：</strong>Quanti采用的云灾难备份与快速恢复方案，有效保障了您的研究策略数据不丢失。</li>
+                </ul>
+        
+      	<h2 id="whats-included-4">
+        	<a class="anchorjs-link " href="#whats-included-4" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	Quanti有什么数据
+        </h2>
+        <p>Quanti免费提供<strong>沪深A股</strong>2005年至今的分钟级交易数据和财务数据，还支持近500种指数数据、20多种LOF数据、100多种分级基金数据，包含完整的停复牌、复权、退市信息，盘后及时更新，点击这里了解更多信息。</p>
+        <ul>
+        	<li><strong>股票数据：</strong>我们拥有所有A股上市公司近10年的股票行情、市值、财务三大报表数据。为了避免幸存者偏差，我们包括了已经退市的股票数据。</li>
+            <li><strong>股票指数：</strong>我们支持近500种股票指数数据，包括指数的行情数据以及成分股数据。为了避免未来函数，我们支持获取历史任意时刻的指数成分股信息，具体见get_index_stocks。<strong class="s">注意：指数不能买卖</strong></li>
+            <li><strong>行业板块：</strong>我们支持按行业、按板块选股，具体见get_industry_stocks</li>
+            <li>所有的行情数据我们均已处理好前复权信息。</li>
+            <li>我们当日的回测数据会在T+1（第二天）的00:01更新。</li>
+        </ul>
+        
+        <h2 id="whats-included-5">
+        	<a class="anchorjs-link " href="#whats-included-5" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	支持哪些Python模块
+        </h2>
+        <p>Quanti提供了丰富强大的Python模块，您可以在策略代码中输入下方代码引入相关模块，比如引入pandas模块的方法：</p>
+        <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="na">import</span> pandas as pd</code></pre></div>
+        <p>Quanti目前支持的Python模块如下：</p>
+        <ul>
+        	<li>
+            	<code>DataAPI：</code>
+                <ul>
+                	<li>Quanti中所有提供的数据都可以通过这个模块获得；</li>
+                    <li>这个函数库为Quanti内置，无需额外import即可使用；</li>
+                </ul>
+            </li>
+            <li>
+            	<code>quartz：</code>
+                <ul>
+                	<li>Quanti的回测框架；</li>
+                    <li>这个函数库为Quanti内置，无需额外import即可使用；</li>
+                </ul>
+            </li>
+            <li>
+            	<code>numpy：</code>
+                <ul>
+                	<li>是Python的一种的数值计算扩展，能够高效存储和处理大型矩阵；</li>
+                    <li>是基于NumPy的更为丰富和高级的功能扩展，在统计、优化、插值、数值积分、常微分方程求解器等方面提供了大量的可用函数，基本覆盖了基础科学计算相关的问题；</li>
+                </ul>
+            </li>
+            <li>
+            	<code>pandas：</code>
+                <ul>
+                	<li>是基于NumPy的一种工具，主要用于解决数据分析任务。Pandas提供了大量能使我们快速便捷地处理数据的函数和方法，提供了高效地操作大型数据集所需的工具。</li>
+                    <li>这个函数库为Quanti内置，无需额外import即可使用；</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h1 id="whats-included1" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included1" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	指数数据
+        </h1>
+        <p>Quanti提供了丰富的数据模块，您可以在策略代码中输入下方代码引入相关数据：</p>
+        <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="na">benchmark = </span> "指数代码"</code></pre></div>
+        <table class="table">
+        	<thead>
+            	<tr>
+                	<th width="20%">指数代码</th>
+                    <th>指数名称</th>
+                    <th>起始日期</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr>
+                	<td>000001</td>
+                    <td>上证指数</td>
+                    <td>1994-10-19</td>
+                </tr>
+                <tr>
+                	<td>399001</td>
+                    <td>深圳成指</td>
+                    <td>1995-02-28</td>
+                </tr>
+                <tr>
+                	<td>399101</td>
+                    <td>中小板综</td>
+                    <td>2007-04-02</td>
+                </tr>
+                <tr>
+                	<td>399300</td>
+                    <td>沪深300</td>
+                    <td>2002-01-04</td>
+                </tr>
+            </tbody>
+         </table>
+        
+        <h1 id="whats-included2" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included2" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	策略回测
+        </h1>
+
+        <h2 id="whats-included2-1">
+        	<a class="anchorjs-link " href="#whats-included2-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	回测的目的
+        </h2>
+        <p>策略中主要具体描述了您投资交易的思路、具体的操作方法，将策略放到历史数据中进行回测检验，能够有效地考察策略在过去进行实践的有效性。</p>
+        <h2 id="whats-included2-2">
+        	<a class="anchorjs-link " href="#whats-included2-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	在Quanti怎么回测
+        </h2>
+        <p>Quanti的回测框架目前支持股票、分钟线回测，在未来，还将会支持期货、高频交易以及固定收益市场等等类型的策略。</p>
+        <h1 id="whats-included3" class="page-header">
+        	<a class="anchorjs-link " href="#whats-included3" aria-label="Anchor link for: whats included" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	其他研究功能
+        </h1>
+		<p>Quanti在开始研究中还提供了其他丰富的研究工具。</p>
+        <h2 id="whats-included3-1">
+        	<a class="anchorjs-link " href="#whats-included3-1" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	代码补全与提示
+        </h2>
+        <p>策略代码中，输入部分变量或函数，按 Tab 键后，会进行代码自动补全，若有多个选项时，显示补全列表。</p>
+        <p>输入代码的时候，按tab键，则会显示代码补全提示以及代码帮助，按enter键则会自动补全。</p>
+        <h2 id="whats-included3-2">
+        	<a class="anchorjs-link " href="#whats-included3-2" aria-label="Anchor link for: whats included precompiled" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>
+        	快捷键
+        </h2>
+        <table class="table">
+        	<thead>
+            	<tr>
+                	<th width="20%">快捷键</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr>
+                	<td>Ctrl+S</td>
+                    <td>保存当前策略</td>
+                </tr>
+                <tr>
+                	<td>Ctrl+Enter</td>
+                    <td>运行当前策略</td>
+                </tr>
+                <tr>
+                	<td>Ctrl+Z</td>
+                    <td>撤销当前策略操作</td>
+                </tr>
+                <tr>
+                	<td>Ctrl+Y</td>
+                    <td>恢复当前策略撤销</td>
+                </tr>
+                <tr>
+                	<td>Ctrl+Shift+D</td>
+                    <td>复制并粘贴当前行</td>
+                </tr>
+            </tbody>
+         </table>
+
+	</div>
+    </div>
+    </div>
+</div><!-- /.container -->
+    

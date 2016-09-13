@@ -1,0 +1,149 @@
+@charset "utf-8";
+/**
+  bootstrap common style
+*/
+
+/**
+  修改logo标题
+*/
+body {
+	font-family: "微软雅黑";
+}
+.navbar-header .navbar-brand {
+	font-size: 24px;
+	height: 60px;
+	line-height: 30px;
+}
+/**
+  顶部菜单栏的竖线
+*/
+.navbar-nav li.divider {
+	height: 60px;
+	border-left: 1px solid #5174a2;
+}
+/**
+  添加顶部菜单栏的背景色
+*/
+.navbar-dark {
+	background-color: #254f88;
+	/*border-color: #a0a0a0;*/
+}
+.navbar-dark .navbar-brand {
+	color: #ffffff;
+}
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-brand:focus {
+	color: #fff;
+	background-color: transparent;
+}
+.navbar-dark .navbar-text {
+	color: #ffffff;
+}
+.navbar-dark .navbar-nav > li > a {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 30px;
+	color: #ffffff;
+}
+.navbar-dark .navbar-nav > li > a:hover,
+.navbar-dark .navbar-nav > li > a:focus {
+	color: #fff;
+	background-color: transparent;
+}
+.navbar-dark .navbar-nav > .active > a,
+.navbar-dark .navbar-nav > .active > a:hover,
+.navbar-dark .navbar-nav > .active > a:focus {
+	color: #fff;
+	background-color: #5174a2;
+}
+.navbar-dark .navbar-nav > .disabled > a,
+.navbar-dark .navbar-nav > .disabled > a:hover,
+.navbar-dark .navbar-nav > .disabled > a:focus {
+	color: #444;
+	background-color: transparent;
+}
+.navbar-dark .navbar-toggle {
+	border-color: #333;
+}
+.navbar-dark .navbar-toggle:hover,
+.navbar-dark .navbar-toggle:focus {
+	background-color: #2f5a8f;
+}
+.navbar-dark .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+.navbar-dark .navbar-collapse,
+.navbar-dark .navbar-form {
+	border-color: #101010;
+}
+.navbar-dark .navbar-nav > .open > a,
+.navbar-dark .navbar-nav > .open > a:hover,
+.navbar-dark .navbar-nav > .open > a:focus {
+	color: #fff;
+	background-color: #5174a2;
+}
+@media (max-width: 767px) {
+	.navbar-dark .navbar-nav .open .dropdown-menu > .dropdown-header {
+		border-color: #a0a0a0;
+	}
+	.navbar-dark .navbar-nav .open .dropdown-menu .divider {
+		background-color: #5174a2;
+	}
+	.navbar-dark .navbar-nav .open .dropdown-menu > li > a {
+	color: #ffffff;
+	}
+	.navbar-dark .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-dark .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #fff;
+		background-color: transparent;
+	}
+	.navbar-dark .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-dark .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-dark .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #fff;
+		background-color: #5174a2;
+	}
+	.navbar-dark .navbar-nav .open .dropdown-menu > .disabled > a,
+	.navbar-dark .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+	.navbar-dark .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+		color: #444;
+		background-color: transparent;
+	}
+}
+.navbar-dark .navbar-link {
+	 color: #ffffff;
+}
+.navbar-dark .navbar-link:hover {
+	color: #fff;
+}
+.navbar-dark .btn-link {
+	color: #ffffff;
+}
+.navbar-dark .btn-link:hover,
+.navbar-dark .btn-link:focus {
+	color: #fff;
+}
+.navbar-dark .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-dark .btn-link:hover,
+.navbar-dark .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-dark .btn-link:focus {
+	color: #444;
+}
+
+
+/**
+  屏幕尺寸大于768像素后顶部菜单栏选项右悬浮
+*/
+@media (min-width: 768px) {
+	.navbar-nav-right {
+		float: right!important;
+	}
+}
+@media (max-width: 768px) {
+	.navbar-nav li.divider {
+		height: 1px;
+		border: none;
+		margin: 0 3px;
+		border-top: 1px solid #e8e8e8;
+	}
+}

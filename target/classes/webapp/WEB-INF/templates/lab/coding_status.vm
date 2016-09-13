@@ -1,0 +1,102 @@
+<div class="" id="specialstuff">
+	<input type="text" type="hidden" id="id" name="id" value="$!id">
+    <!--web编辑区域，左侧编辑代码区域-->
+    <div class="write" >
+        <div class="writeleft">
+            <div class="writetop">
+                <h5 class="writename">$!userStrategy.strategyName</h5>
+                <div class="tool">
+                    <a class="toolnormal tool01" onclick="save()">保存</a>
+                    <a class="toolnormal tool02" onclick="Run.run()">运行</a>
+                    ##<a class="toolnormal tool03">克隆</a>
+                    <a class="toolnormal tool04" id="fsbutton" >全屏</a>
+                </div>
+            </div>
+            <div class="writebottom">
+            	<input type="hidden" name="strategy_id" id="strategy_id" value="$!userStrategy.id" />
+                <pre id="editor">$!userStrategy.strategyText</pre>
+            </div>
+        </div>
+        <div class="writecenter" id="moveLine"></div>
+    </div>
+    <!--web编辑区域，右侧-->
+    <div class="run">
+        <div class="tool">
+            <!--<a class="toolnormal tool05"><em>回测详情</em></a>-->
+                    
+            <!-- Button trigger modal -->
+            <a class="toolnormal tool05" data-toggle="modal" data-target="#"><em>回测详情</em> </a>
+            <a class="toolnormal tool07" id="match"><em>参赛</em> </a>
+        </div>
+
+        <div class="runbottom">
+			<!--结果数值列举-->
+        	<ul class="result-value" id="result_desc">
+            </ul>
+        	<div class="dashboard"  id="result" >
+            </div>
+            <div class="diary">
+            	<span class="diary-title">日志</span>
+                <div class="diary-data" id="result_log"></div>
+            </div>
+		</div>
+
+	</div>
+</div>
+<!--新增资源占用显示区域-开始-->
+<ul class="persent" onclick="change('operate');return false">
+	<li><span class="cpu"></span>0.00%</li>
+    <li><span class="rom"></span>sdfM</li>
+    <li><span class="ram"></span>239K</li>
+</ul>
+<div class="resource">
+	<h3>资源分配状态：<a></a></h3>
+    
+	<div class="cpurow">
+    	<span>CPU</span>
+    	<div class="progress">
+  			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    			<span class="sr-only">60% Complete</span>
+ 		 	</div>
+		</div>
+        <span>0.00%</span>
+    </div>
+    <div  class="cpurow">
+    	<span>内存</span>
+    	<div class="progress">
+  			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    			<span class="sr-only">60% Complete</span>
+ 		 	</div>
+		</div>
+        <span>108.24M/1024.00M</span>
+    </div>
+    <div class="cpurow">
+    	<span>存储</span>
+    	<div class="progress">
+  			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    			<span class="sr-only">60% Complete</span>
+ 		 	</div>
+		</div>
+        <span>252K/1G</span>
+    </div>
+</div>
+<!--CPU占用显示结束-->
+
+
+
+#parse("lab/coding_model.vm")
+
+#define($scriptHtml)
+
+	<!-- highstock -->
+	<script src="/libs/js/highstock-all.js"></script>
+	
+	<!-- load ace -->
+    <script src="/ace/js/ace.js"></script>
+    
+    <!-- load ace language tools -->
+    <script src="/ace/js/ext-language_tools.js"></script>
+    
+
+
+#end

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-11">
+    <p class="index-title">欢迎您进入量化分析页，“新用户引导”将简单介绍平台~</p>
+  </div>
+</div>
+<div class="row">
+	<div class="col-md-3 col-sm-8">
+        <div class="blcok">
+          <div class="section">
+            <a href="/lab/lab_coding_index.html">
+	          <div class="block-left">
+	            <img src="../libs/images/right_03.png" height="60px">
+	          </div>
+	          <div class="block-right">
+	             <h4><span>新用户引导</span></h4>
+	          </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-8">
+        <div class="blcok">
+          <div class="section">
+            <a href="#" id="submit_code_init">
+	          <div class="block-left">
+	            <img src="../libs/images/right_04.png" height="60px">
+	          </div>
+	          <div class="block-right">
+	             <h4><span class="redfont">编辑代码策略</span></h4>
+	          </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-8">
+        <div class="blcok">
+          <div class="section">
+          	<a href="#" data-toggle="modal" data-target="#myModal" style="outline: none;">
+              <div class="block-left">
+                <img src="../libs/images/right_05.png" height="60px">
+              </div>
+              <div class="block-right">
+                <h4><span class="bluefont">使用策略生成器</span></h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+</div>

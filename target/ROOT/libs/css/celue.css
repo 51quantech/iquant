@@ -1,0 +1,489 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-family:"微软雅黑";}
+/*策略列表*/
+.h4{
+	font-size:20px;
+	color:#444;
+	padding:0px;
+	margin-bottom:14px;
+}
+
+/*变更网站导航颜色*/
+/*更换logo*/
+.navbar-brand{
+	display:inline-block;
+	background:url(/libs/images/logo.png) no-repeat center;
+	width:200px;
+	margin-right:40px;
+}
+.navbar-dark{
+	background: #0b58af; /* For browsers that do not support gradients */    
+}
+.navbar-nav li.divider{
+	border-color:rgba(255,255,255,.3);
+}
+/*更换背景，选中的a背景替换*/
+.navbar-dark .navbar-nav > .active > a, .navbar-dark .navbar-nav > .active > a:hover, .navbar-dark .navbar-nav > .active > a:focus{
+	background-color:rgba(255,255,255,.18) !important;
+}
+/*变更导航颜色结束*/
+/*帮助下拉菜单*/
+/*帮助模块下拉菜单样式调整*/
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+	background:rgba(255,255,255,0.3) !important;
+	border:none;
+}
+.dropdown-menu{
+	min-width:155px;
+}
+
+.dropdown-menu > li > a{
+	line-height:2em;
+}
+/*帮助下拉结束*/
+
+.sidebar a {
+	color: #828282;
+	border-bottom: 1px solid #c8c8c8;
+}
+.tree img {
+	height: 30px;
+	margin-top: -30px;
+}
+.tree p {
+	height: 50px;
+	line-height: 50px;
+	margin-top: -50px;
+}
+.sub-title {
+	padding-bottom: 15px;
+	font-weight: bold;
+	color:#444444;
+	}
+.index-title{
+	font-weight:normal;
+	line-height:5em;
+}
+
+/*.blcok {
+	border-left: 1px solid #cacaca;
+	padding-left: 30px;
+}*/
+.section {
+	border: 1px solid #f5f5f5;
+}
+.block-left,
+.block-right {
+	color: #828282;
+	vertical-align: middle;
+	height: 60px;
+	display: inline-block;
+	cursor:pointer;
+}
+.block-right h4 {
+	font-size:18px;
+	color:#666666;
+	margin-top:20px;
+	margin-bottom:0px;
+	text-indent:0.5em;
+}
+.block-right p {
+	font-size:14px;
+	color: #aaaaaa;
+}
+
+
+.navbar-nav>li>a{
+	line-height:30px;}
+.navbar-inverse .navbar-nav>li>a{
+	font-size:16px;
+	font-weight:bold;
+	color:#ffffff;}
+
+@media (min-width: 768px) {
+ .sidebar{
+	 top:60px;
+	 padding:20px;
+	 padding-top: 0;
+	 background-color:#e2e1e1;}
+}
+.nav-sidebar > li > a{
+	height:76px;
+	line-height:76px;
+	text-align:center;
+	padding-top:0px;
+	padding-bottom:0px;
+	font-size:14px;}
+.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus{
+	background:#fcfcfc;
+	color:#707070;
+	height:76px;}
+	
+a:focus, a:hover{
+	color:#707070;
+	text-decoration:none;}
+
+/*策略列表浮动框*/
+ul.nav-sidebar>li:first-child{
+	position:relative;
+
+	}
+.navmenu{
+	position:absolute;
+	width:330px;   /*增大宽度，给滚动条留出位置*/
+	right:-330px;
+	background:#fafafa;
+	border-right:6px solid #efefef;
+	z-index:999999;
+	top:0px;
+	bottom:0px;}
+.navmenu a{
+	border:none;
+	cursor:pointer;
+}
+.navmenu a:hover{
+	text-decoration:none;}
+.menutool{
+	background:#f4f4f4;
+	border:none;
+	clear:both;
+	padding-left:10px;
+	}
+.menu_listall{
+	position:absolute;
+	width:324px;
+	top:38px;
+	bottom:0px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+.toolnormal{
+	display:inline-block;
+	padding-left:20px;
+	height:38px;
+	line-height:38px;
+	margin-right:10px;
+	font-size:12px;
+	font-weight:normal;
+	color:#444444;
+	cursor:pointer;
+}
+
+.tool06{
+	background:url(../images/tool_06.png) no-repeat left center;
+}
+.tool07{
+	background:url(../images/tool_07.png) no-repeat left center;
+}
+.tool08{
+	background:url(../images/tool_08.png) no-repeat left center;
+}
+.tool09{
+	background:url(../images/tool_09.png) no-repeat left center;
+}
+.tool10{
+	background:url(../images/tool_10.png) no-repeat left center;
+}
+.tool11{
+	background:url(../images/tool_11.png) no-repeat left center;
+}
+.tool12{
+	background:url(../images/tool_12.png) no-repeat left center;
+}
+.tool13{
+	background:url(../images/tool_13.png) no-repeat left center;
+}
+.tool05 em,.tool11 em,.tool12 em,.tool13 em{
+	color:#0d51ce !important;
+	font-style:normal;
+	}
+
+.menulist{
+	height:38px;
+	border-bottom:1px solid #d8d8d8;
+	padding-left:10px;}
+.checkbox{
+	display:inline-block;
+	margin-right:6px !important;
+	vertical-align:top;
+	height:32px;
+	}
+.menuname{
+	display:inline-block;
+	width:216px;
+	color:#444444;
+	line-height:38px;
+	text-align:left;
+	vertical-align:top;}
+.packall{
+	width:0px;
+	height:0px;
+	border-top:4px solid transparent;
+	border-bottom:4px solid transparent;
+	border-right:3px solid #444444;
+	position:absolute;
+	right:-4px;
+	top:300px;
+	cursor:pointer;
+}
+
+
+/*回测详情*/
+.modal-dialog{
+		width:1000px !important;}
+.modal-header{
+	background:#0b63af;
+	border-radius:4px 4px 0 0;
+}
+.modal-title{
+	color:#e3e3e3;
+	font-size:24px;
+}
+.modal_tree{
+	float:left;
+	width:120px;
+	margin-right:15px;
+	}
+.list-group-item{
+	padding:0px;
+	background:none;
+	list-style:none;
+	border:none;
+	border-radius:0;
+}
+.list-group-item a{
+	display:block;
+	color:#767676;
+	background:#fff;
+	width:120px;
+	line-height:36px;
+	text-indent:15px;
+	font-size:14px;
+	border-left:2px solid #fff;
+}
+.list-group-item.active a{
+	display:block;
+	color:#0c90ce;
+	background:#eff8fd;
+	border-left:2px solid #0c90ce;
+}
+.model_cont{
+	float:left;
+	width:830px;
+	text-decoration:none;
+	margin:0px;
+}
+.clear{
+	clear:both;}
+
+#editor {
+	height: 100%;
+	width: 100%;
+    border-radius: 0px;
+    border: none;
+    padding-bottom: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+}
+.code {
+    width: 100%;
+    white-space: pre-wrap;
+    border: solid lightgrey 1px
+}
+#specialstuff {
+	width: 100%;
+    height: 100%;
+	position: relative;
+}
+
+/*策略生成器的关闭按钮设置*/
+.modal-header .close{
+	color:#fff;
+	text-shadow:0 1px 0 #000;
+	filter:alpha(opacity=40);
+	opacity:0.4;
+	margin-top:6px;
+}
+/*关闭设置结束*/
+
+
+/*策略详情右侧模块名字*/
+.panelname{
+	width:100%;
+	height:300px;
+	border-bottom:1px solid #eeeeee;
+	font-size:14px;
+	font-weight:bold;
+	color:#333333;
+	height:38px;
+	line-height:38px;
+	text-align:left;}
+.panelname span{
+	display:inline-block;
+	margin-right:20px;}
+
+/*固定表头的列表*/
+.fixedtable{
+	width:100%;
+	border:none;
+	border-left:1px solid #eeeeee;
+	font-size:14px;
+	color:#555555;
+	}
+.fixedrow{
+	height:30px;
+	line-height:30px;
+	border-bottom:1px solid #eeeeee;
+	z-index:1000;
+	position:relative;
+	
+}
+.fixedrow tbody td{
+	font-size:12px;}
+.fixedrowtd{
+	text-align:center;
+	font-weight:bold;
+	color:#333333;
+	border-right:1px solid #eee;
+	padding:0px;
+	height:30px;
+	}
+.tooldata{
+	width:0px;
+	height:0px;
+	border-left:5px solid transparent;
+	border-right:5px solid transparent;
+	border-bottom:4px solid #333333;
+	position:absolute;
+	top:14px;
+	cursor:pointer;
+}
+.tooldata2{
+	width:0px;
+	height:0px;
+	border-left:5px solid transparent;
+	border-right:5px solid transparent;
+	border-top:4px solid #333333;
+	position:absolute;
+	top:14px;
+	cursor:pointer;
+}
+.tooledit{
+	float:right;
+	background:url(../images/icon_edit.png) no-repeat left;
+	width:14px;
+	height:30px;
+	cursor:pointer;
+	
+}
+
+/*滚动table*/
+.scrolltable{
+	width:100%;
+	overflow-y:auto;
+	overflow-x:hidden;
+	height:500px;}
+.scrolltable tr{
+	border-right:1px solid #eee;}
+.scrolltable td{
+	background:#fff;
+	font-size:12px;
+	height:29px;
+	line-height:28px;
+	border-bottom:1px solid #eee;
+	}
+.scrolltime{
+	display:inline-block;
+	margin-right:15px;}
+/*箭头上下*/
+.toolopen{
+	display:inline-block;
+	vertical-align:top;
+	width:20px;
+	height:28px;
+	background:url(../images/icon_open.png) no-repeat center;}
+.toolpack{
+	display:inline-block;
+	vertical-align:top;
+	width:20px;
+	height:28px;
+	background:url(../images/icon_pack.png) no-repeat center;}
+/*隶属的分行*/
+.openrow{
+	height:29px;
+	line-height:28px;
+	text-align:left;
+	border-right:1px solid #eee;
+	}
+.openrow td{
+	padding:0 4px;
+	background:#f8f8f8;
+	}
+/*td文字12px*/
+.table td{
+	font-size:12px;
+}
+/*边框线处理*/
+.borderleft{
+	border-left:1px solid #eeeeee;}
+.bordertop{
+	border-top:1px solid #eeeeee;}
+.borderbottom{
+	border-bottom:1px solid #eeeeee;}
+/*文字居右处理*/
+.textright{
+	text-align:right;}
+.clear{
+	clear:both;
+	margin:0px;
+	padding:0px;
+	}
+/*红色字体*/
+.redfont{
+	color:#c7283e;
+	}
+.greenfont{
+	color:#00782e;}
+.gray{
+	color:#666666;}
+.orangefont{
+	color: #ce5d25;
+}
+.cyanfont{
+	color:#18b19c;
+}
+.bluefont{
+	color: #254f88;
+}
+.black{
+	color:#454545;
+	font-weight:bold;}
+.floatleft{
+	float:left !important;
+	line-height:30px !important;
+}
+.floatright{
+	float:right;
+}
+
+/*修改密码样式*/
+.btn{
+	background:#0353ac;
+	color:#fff;
+	padding:6px 24px;
+	/* margin-right:15px; */
+	vertical-align:top;
+}
+.btn:hover,.btn:active{
+	color:#fff;
+}
+.btn-gray{
+	padding:6px 24px;
+	color:#666;
+	background:#ededed;
+	border:1px solid #ccc;
+	border-radius:3px;
+	vertical-align:top;
+}

@@ -1,0 +1,139 @@
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">策略生成器</h4>
+	      </div>
+	      <div class="modal-body">
+	      
+	      	<!--策略生成器内容页开始   first -->
+	      	<div class="modal-first modal-wrap" >
+	        	<!--左侧指标选择区域开始-->
+            	<div class="model_left">
+                	<p class="modle_title">主体投资组合调仓</p>
+                    <ul class="element">
+                    	<li><span>起始日期：</span><input readonly name="startDay" type="text" value="2016-01-01" id="datetimepicker1" data-date-format="yyyy-mm-dd hh:ii"></li>
+                    	<li><span>结束日期：</span><input readonly name="endDay" type="text" value="2016-04-01" id="datetimepicker2" data-date-format="yyyy-mm-dd hh:ii"></li>
+                        <li><span>初始资金：</span><input name="money"  value="1000000" type="text"><span>元</span></li>
+                    	<li><span>调仓频率：</span><input name="ratio" value="1" type="text"><span>交易日</span></li>
+                    </ul>
+                    <div class="modal-footer">
+                    	<button id="modal_first_btn" type="button" class="btn btn-primary">下一步</button>
+                    </div>
+                </div>
+	            <!--左侧指标选择区域结束-->
+	            <!--右侧代码区域开始-->
+            	<div class="model_right">
+                	<p class="modle_title">策略代码预览</p>
+                    <div id="code1" class="code" ace-mode="ace/mode/python" ace-theme="ace/theme/chrome" ace-gutter="true"></div>
+                </div>
+           </div>
+	       <!--右侧代码区域结束  first-->
+	       
+	       <div class="clear"></div>
+	            
+	       <!--右侧代码区域开始  second-->
+	       <div class="modal-second modal-wrap hide">
+	            <!--策略生成器内容页开始-->
+	        	<!--左侧指标选择区域开始-->
+            	<div class="model_left">
+                	<p class="modle_title">主体投资组合调仓</p>
+                    <!-- Split button 下拉按钮开始-->
+                    <div class="btn-group">
+                      <button type="button" id="sel_btn" class="btn btn-primary model-width">选择热门主题</button>
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">选择热门主题</span>
+                      </button>
+                      <ul class="dropdown-menu model-menu" id="sel_ul">
+                        <li data-value="1001" data-name="智能设备"><a href="#" class="text-left"><span class="redfont text-right visible-lg-inline-block">+10.00%</span>智能设备</a></li>
+                        <li data-value="1002" data-name="医疗"><a href="#" class="text-left" ><span class="redfont text-right visible-lg-inline-block">+4.00%</span>医疗</a></li>
+                      </ul>
+                    </div>
+                    <!--下拉按钮结束-->
+                    <!--搜索查询开始-->
+                    <div class="input-group model-ss">
+                      <input type="text" class="form-control" placeholder="输入股票名称/代码" id="stock_add_select">
+                      <input type="hidden" id="stock_value" value="">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default btn-primary" type="button" id="stock_add">添加</button>
+                      </span>
+                    </div><!-- /input-group -->
+                    <!--搜索查询结束-->
+                    <!--股票及权重--开始-->
+                    <div class="themes">
+                    	<div class="fixedtable">
+                        	<div class="fixedrow">
+                            	<table  width="100%" border="0" >
+                                	<thead>
+                                    	<tr>
+                                        	<th width="50%" class="fixedrowtd">股票(<span id="stock_num">0</span>)只</th>
+                                            <th width="50%" class="fixedrowtd">仓位权重</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                           </div>
+                           <!--以上是固定表头-->
+                           <div class="scrolltable" style="height:200px;">
+                           		<table  width="100%" border="0" class="stock-table">
+                                	<thead style="visibility:hidden;">
+                                    	<tr>
+                                        	<th width="50%"></th>
+                                            <th width="50%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                </table>
+                           </div>
+                           <!--固定表最后一行-->
+                           	<div class="fixedrow">
+                            	<table  width="100%" border="0" >
+                                	<thead>
+                                    	<tr>
+                                        	<th width="50%" class="fixedrowtd">可用现金</th>
+                                            <th width="50%" class="fixedrowtd greenfont" id="able_money">100%</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                           </div>
+                           <!--以上是固定表头-->
+                           <!--固定表最后一行结束-->
+                        </div>
+                        <!--调仓结束-->
+                    </div>
+                    <!--股票权重--结束-->
+                    <div class="modal-footer">
+                     <a class="floatleft" id="modal_second_btn">上一步</a>   
+						<button id="submit_code" type="button" class="btn btn-primary floatright" >创建主题策略</button>
+                    </div>
+                </div>
+	            <!--左侧指标选择区域结束-->
+	            <!--右侧代码区域开始-->
+            	<div class="model_right">
+                	<p class="modle_title">策略代码预览</p>
+                    <div id="code2" class="code" ace-mode="ace/mode/python" ace-theme="ace/theme/chrome" ace-gutter="true"></div>
+                </div>
+	            <!--右侧代码区域结束-->
+			<div>
+			<!--策略生成器内容页结束 second-->
+	        
+	        <div class="clear"></div>
+	            
+	      </div>
+		  <form name="CodeForm" style="disply:none;" method="post" action="/lab/lab_coding.html" >
+		  	<input type="hidden" name="code" value="">
+		  </form>
+		  <!--      
+		  <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+		  -->    
+		  
+		</div>
+	  </div>
+	</div>

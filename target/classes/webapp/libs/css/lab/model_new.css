@@ -1,0 +1,201 @@
+@charset "utf-8";
+/* CSS Document */
+/*策略生成器的左侧右侧浮动*/
+ul,li{
+	list-style:none;}
+.modal-body{
+	padding:0px !important;}
+.model_left{
+	float:left;
+	width:320px;
+	height:540px;
+	position:relative;
+	}
+/*策略生成器的标题*/
+.modle_title{
+	width:100%;
+	margin:0px;
+	padding:0px;
+	text-indent:15px;
+	height:40px;
+	line-height:40px;
+	text-align:left;
+	font-size:16px;
+	color:#444444;
+	font-weight:normal;
+	font-family:"微软雅黑";
+	background:#f5f5f5;
+	border-bottom:2px solid #dddddd;}
+.element{
+	padding:30px 0 0 15px;
+	width:305px;
+	margin-bottom:30px;
+	}
+.element li{
+	margin-bottom:10px;}
+.element li span{
+	display:inline-block;
+	font-size:14px;
+	color:#999999;
+	text-align:left;
+	line-height:34px;}
+.element li input[type=text]{
+	display:inline-block;
+	width:160px;
+	border:1px solid #ccc;
+	height:34px;
+	margin-right:10px;}
+.modal-footer{
+	position:absolute;
+	width:100%;
+	text-align:left;
+	bottom:0px;}
+.modal-footer a{
+	float:right;
+	line-height:38px;
+	cursor:pointer;
+	}
+
+/*策略生成器的关闭按钮设置*/
+.close{
+	color:#fff;
+	text-shadow:0 1px 0 #000;
+	filter:alpha(opacity=40);
+	opacity:0.4;
+}
+/*关闭设置结束*/
+
+/*策略右侧*/
+.model_right{
+	float:left;
+	width:678px;
+	border-left:1px solid #dddddd;
+	height:540px;
+	overflow: auto;
+	}
+.model_right .code{
+	height:500px;
+	background:#fcfcfc;
+	overflow:auto;
+}
+.model_right .code .ace-chrome{
+	background:#fcfcfc;
+}
+/* .model_right div{
+	height:500px;
+	background:#f9f9f9;
+	overflow:auto;} */
+/*下一步界面内容*/
+/*弹出框宽度*/
+.btn-group, .btn-group-vertical{
+	left:15px;
+	top:15px;
+	}
+.model-width{
+	width:264px;}
+.model-menu{
+	width:290px;
+	font-size:12px;
+	z-index:1001;}
+.model-menu li{
+	border-bottom:1px solid #dddddd;
+	}
+.model-menu li a{
+	line-height:28px;}
+.model-menu li a span {
+	float:right;
+	}
+/*搜索框*/
+.model-ss{
+	left:15px;
+	top:30px;
+	width:289px;}
+/*股票列表*/
+.themes{
+	width:290px;
+	position:relative;
+	left:15px;
+	top:45px;
+	border:none;
+	}
+.themes .fixedrow{
+	border-top:1px solid #eeeeee;
+	}
+
+.themes td{
+	text-align:center;}
+.themes-input{
+	display:inline-block;
+	border:1px solid #bbbbbb;
+	width:70px;
+	height:20px;
+	line-height:20px;
+	margin-right:4px;
+	}
+.themes td span,input,a{
+	vertical-align:middle;}
+.themes .tool08{
+	margin-left:10px;
+	margin-right:0px;}
+.themes .scrolltable{
+	border-right:1px solid #eee;}
+.themes .scrolltable tr{
+	border-right:none;}
+/*指标权重显示背景*/
+.stock-table {
+	
+}
+.stock-table thead {
+	
+}
+.stock-table tbody td {
+	position: relative;
+}
+.bf{
+	position: relative;
+	z-index: 2;
+}
+.bg{
+	display:inline-block;
+	position:absolute;
+	width: 0%; 
+	background:#abcbf7; 
+	transition:width 3s;
+	-moz-transition:width 3s; /* Firefox 4 */
+	-webkit-transition:width 3s; /* Safari and Chrome */
+	-o-transition:width 3s; /* Opera */
+	height:38px; 
+	left:0; 
+	top:0; 
+	z-index: 1
+}
+.ui-autocomplete {
+	z-index: 1060;
+}
+/*弹出结果列表，不要圆角*/
+.ui-corner-all{
+	border-radius:0px;
+}
+/*模糊搜索，设置滚动条*/
+.ui-widget-content{
+	border:1px solid #66afe9;
+	border-color:#66afe9 !important;
+	background:#fff;
+	color:#666;
+	font-family:"微软雅黑";
+	font-size:14px;
+	height:280px;
+	overflow:auto;
+}
+
+.ui-menu .ui-menu-item{
+	list-style:none;
+}
+.ui-widget-content a{
+	color:#666;
+}
+.ui-widget-content a:hover{
+	background:#cfe9fd;
+	border:1px solid #cfe9fd;
+}
+

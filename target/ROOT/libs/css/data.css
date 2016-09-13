@@ -1,0 +1,320 @@
+/*变更网站导航颜色*/
+/*更换logo*/
+.navbar-brand{
+	display:inline-block;
+	background:url(/libs/images/logo.png) no-repeat center;
+	width:200px;
+	margin-right:40px;
+}
+.navbar-dark{
+	background: #0b58af; /* For browsers that do not support gradients */    
+}
+
+.navbar-nav li.divider{
+	border-color:rgba(255,255,255,.3);
+}
+
+/*更换背景，选中的a背景替换*/
+
+.navbar-dark .navbar-nav > li > a:hover,
+.navbar-dark .navbar-nav > li > a:focus {
+	color: #fff;
+	background-color: transparent;
+}
+.navbar-dark .navbar-nav > .active > a,
+.navbar-dark .navbar-nav > .active > a:hover,
+.navbar-dark .navbar-nav > .active > a:focus {
+	color: #fff;
+	background-color:rgba(255,255,255,.18) !important;
+}
+.navbar-dark .navbar-nav > .open > a,
+.navbar-dark .navbar-nav > .open > a:hover,
+.navbar-dark .navbar-nav > .open > a:focus {
+	color: #fff;
+	background-color:rgba(255,255,255,.18) !important;
+}
+/*变更导航颜色结束*/
+/*帮助下拉菜单*/
+/*帮助模块下拉菜单样式调整*/
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+	background:rgba(255,255,255,0.3) !important;
+	border:none;
+}
+.dropdown-menu{
+	min-width:155px;
+}
+
+.dropdown-menu > li > a{
+	line-height:2em;
+}
+/*帮助下拉结束*/
+
+.bs-docs-sidebar .nav>li>a {
+    font-size: 18px;
+    padding: 8px 20px;
+    color:#000;
+	margin-bottom:8px;
+}
+.bs-docs-sidebar .nav>.active:focus>a, .bs-docs-sidebar .nav>.active:hover>a, .bs-docs-sidebar .nav>.active>a {
+	border-color: #0c90ce;
+    color: #0080b8;
+	/*background: #eff8fd;*/
+}
+.bs-docs-sidebar .nav>li>a:focus, .bs-docs-sidebar .nav>li>a:hover {
+	border-color: #0c90ce;
+	color: #0c90ce;
+}
+
+
+.back-to-top, .bs-docs-theme-toggle {
+    font-size: 14px;
+}
+
+
+.bs-docs-sidebar .nav .nav>li>a {
+	padding:0px;
+	padding-left:32px;
+	font-size:14px;
+	font-weight:400;
+}
+
+.nav-stated,.nav-stated>li{
+	padding:0px;
+	list-style:none;
+	padding-left:10px;
+	font-size:12px;
+	font-weight:400;
+}
+
+
+/*数据，API左侧树，2,3级样式*/
+.bs-docs-sidebar .nav .navtwo>li>a{
+	display:block;
+	padding:4px 12px 4px 32px;
+	font-size:14px;
+	font-weight:500;
+}
+.bs-docs-sidebar .nav  .navtwo>li>a:focus,.bs-docs-sidebar .nav  .navtwo>li>a:hover{
+	padding-left: 31px;
+	text-decoration:none;
+	background-color:transparent;
+	border-left:1px solid #0c90ce;
+}
+.bs-docs-sidebar .nav .navtwo>.active:focus>a,.bs-docs-sidebar .nav .navtwo>.active:hover>a,.bs-docs-sidebar .nav .navtwo>.active>a{
+	padding-left: 30px;
+	background-color:transparent;
+	border-left:2px solid #0c90ce;
+}
+
+.bs-docs-sidebar .nav .navtwo .navthree>li>a{
+	display:block;
+	padding:4px 12px 4px 52px;
+	font-size:12px;
+	font-weight:500;
+}
+.bs-docs-sidebar .nav  .navtwo .navthree>li>a:focus,.bs-docs-sidebar .nav .navtwo .navthree>li>a:hover{
+	padding-left: 51px;
+	text-decoration:none;
+	background-color:transparent;
+	border-left:1px solid #0c90ce;
+}
+.bs-docs-sidebar .nav .navtwo .navthree>.active:focus>a,.bs-docs-sidebar .nav .navtwo .navthree>.active:hover>a,.bs-docs-sidebar .nav .navtwo .navthree>.active>a{
+	padding-left: 50px;
+	background-color:transparent;
+	border-left:2px solid #0c90ce;
+}
+
+/*2,3级左侧树样式结束*/
+.nav-stated>li>a{
+	display:block;
+	position:relative;
+	padding:0px;
+	padding-left:30px;
+	color:#000;
+	margin-bottom:8px;
+}
+.nav-stated>li>a:focus,.nav-stated>li>a:hover {	
+	color: #0c90ce;
+	padding-left:29px;
+	font-size:12px;
+	text-decoration:none;
+	border-left:1px solid #0c90ce;
+}
+
+.nav-stated>.active:focus>a,.nav-stated>.active:hover>a,.nav-stated>.active>a{
+	border-left:2px solid #0c90ce;
+	padding-left:28px;
+	color: #0c90ce;
+	font-size:12px;
+}
+
+/*loginbt-style*/
+.loginbt{
+	display: block;
+	padding: 8px 20px !important;
+	border: 1px solid #fff;
+	background: rgba(255,255,255,0) !important;
+	font-size: 14px !important;
+	color: #fff;
+	line-height: 14px !important;
+	margin-top: 10px;
+}
+
+
+strong{
+	color:#0080b8;
+}
+/*日志内容居中处理，宽度980px*/
+.logsmain{
+	width:980px !important;
+}
+
+
+/*排名单独页样式处理*/
+.list{
+	background:#0363c9;
+	margin-top:-20px;
+}
+
+/*修改排名样式*/
+.listimg{
+	width:100%;
+	background: url(/libs/images/top/list5.png) no-repeat center center;
+	height:511px;
+	padding:0px;
+	margin:0px;
+}
+/*内页参赛的按钮*/
+.gamebt{
+	display:block;
+	width:318px;
+	height:105px;
+	cursor:pointer;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:100px 0 0 -159px;
+}
+
+.table{
+	margin:0 auto;
+}
+.btn-orange,.btn-blue{
+	display:inline-block;
+	padding:6px 20px;
+	font-size:14px;
+}
+.btn-orange{
+	border:1px solid #f37027;
+	color:#f37027;
+	background:#fff;
+}
+.btn-blue{
+	border:1px solid #295289;
+	color:#295289;
+	background:#fff;
+}
+
+/*收益，回测tab切换*/
+#menu{
+	width:100%;  
+	margin:80px auto;
+	border-top:1px solid #0363c9;}
+#menu #nav {
+	position:relative; 
+	height:60px; top:50%; 
+	margin-top:-30px;
+	width:250px;
+	padding:0;
+	list-style:none; 
+	line-height:27px;  
+	left:50%; 
+	margin-left:-125px;}
+#menu #nav li {
+	float:left;
+	width:100px; 
+	position:absolute; 
+	line-height:46px;}
+#menu #nav .li1{
+	left:0px; 
+	background:#fff;}
+#menu #nav .li2{
+	left:150px; 
+	background:#fff;}
+#menu #nav li a {
+	display:block;
+	height:59px;
+	text-decoration:none;
+	padding:0px;
+	border:1px solid #fff; 
+	border-bottom:none; 
+	text-align:center; 
+	color:#333; 
+	font-size:16px;}
+#menu_con{ 
+	width:100%; 
+	height:135px; 
+	border-top:none}
+.tag{ 
+	padding:10px; 
+	overflow:hidden; 
+	width:50%;
+	margin:0 auto;}
+.tag td:first-child{
+	text-indent:8px;
+}
+.selected{
+	background:#fff; 
+	color:#fff;
+	border:1px solid #0363c9 !important; 
+	border-bottom:none !important; 
+	height:30px !important;}
+.selected .leftpoint{
+	visibility:hidden;}
+.selected .rightpoint{
+	visibility:hidden;}
+.leftpoint{
+	width:0px;
+	border:2px solid #0363c9;
+	height:0px;
+	position:relative;
+	left:6px;
+	top:26px;}
+.rightpoint{
+	width:0px;
+	border:2px solid #0363c9;
+	height:0px;
+	position:relative;
+	left:90px;
+	top:-24px;}
+	
+/*收益，回测TAB结束*/
+/*列表排名TOP3*/
+.no1,.no2,.no3{
+	line-height:32px;
+	color:#fff;
+	}
+.no1{
+	background:url(/libs/images/top/no1.png) no-repeat left center;
+	}
+.no2{
+	background:url(/libs/images/top/no2.png) no-repeat left center;
+	}
+.no3{
+	background:url(/libs/images/top/no3.png) no-repeat left center;
+	}
+	
+	
+	
+/*设定数据，api等界面margin-bottom*/
+.bs-docs-section:last-child {
+	margin-bottom:60px;
+}
+/*界面引用的img:margin-bottom*/
+img{
+	margin-bottom:10px;
+}
+/*h4的margin-bottom*/
+.bs-callout h4{
+	margin-bottom:1em;
+}

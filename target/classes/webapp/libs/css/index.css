@@ -1,0 +1,197 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-family:"微软雅黑";
+}
+.navbar-fixed-top {
+	position: absolute;
+}
+.navbar{
+	min-height:90px;}
+.navbar a {
+	color: #fff;
+}
+
+/*变更网站导航颜色*/
+/*更换logo*/
+.navbar-brand{
+	display:inline-block;
+	background:url(/libs/images/logo.png) no-repeat center;
+	width:200px;
+	margin-right:40px;
+}
+.navbar-dark{
+	background: #034fa3; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#0353ac, #0358b5); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#0353ac, #0358b5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#0353ac, #0358b5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#0353ac, #0358b5); /* Standard syntax (must be last) */
+}
+/*更换背景，选中的a背景替换*/
+.navbar-dark .navbar-nav > .active > a, .navbar-dark .navbar-nav > .active > a:hover, .navbar-dark .navbar-nav > .active > a:focus{
+	background-color:rgba(255,255,255,.18) !important;
+}
+/*变更导航颜色结束*/
+
+/**
+  轮播调整
+*/
+
+.nav>li>a:focus, .nav>li>a:hover{
+	background:rgba(255,255,255,0.18);
+}
+.nav>li>a span{
+	margin-right:4px;
+}
+.carousel-caption {
+	top: 312px;
+}
+.carousel-caption h1{
+	height:40px;
+	/*text-shadow:2px 2px 6px rgba(0,0,0,.2);*/
+	background:url(/libs/images/logo.png) no-repeat center;
+}
+.carousel-caption p{
+	color:#ffffff;
+	margin:20px 0 40px;
+	font-size:14px;
+	opacity:0.85;
+}
+.row h2 {
+	color: #828282;
+}
+.row p {
+	color: #464545;
+}
+
+.btn-gray {
+	margin-top: 20px;
+	color: #fff;
+	letter-spacing: 4px;
+	border-radius: 0;
+	border:2px solid #fff;
+	background:rgba(255,255,255,0);
+	padding:10px 30px;
+}
+.btn-gray:hover,
+.btn-gray:focus {
+	color: #fff;
+}
+/*logo*/
+.navbar {
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:rgba(255,255,255,0.18);	
+}
+.navbar-header .navbar-brand {
+	height:90px;
+	font-size:30px;
+	line-height:60px;
+	font-weight:bold;
+}
+.navbar-nav li.divider {
+	height: 90px;
+	border-left: 1px solid #798dc0;
+	border-left-style:solid;
+	border-left-width:1px;
+	border-left-color:rgba(255,255,255,0.18);
+}
+
+.navbar-nav>li>a{
+	line-height:60px;
+	font-size: 16px;
+	font-weight:bold;}
+
+/*帮助模块下拉菜单样式调整*/
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+	background:rgba(255,255,255,0.3) !important;
+	border:none;
+}
+.dropdown-menu{
+	border-radius:0;
+	background-color:rgba(255,255,255,0.2);
+	box-shadow:none;
+	min-width:155px;
+	border:none;
+
+}
+.dropdown-menu>li>a{
+	padding:5x 20px;
+	line-height:2em;
+	color:#fff;
+	font-size:14px;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+	background:none;
+	color:#fff;
+	text-decoration:underline;
+}
+
+/*loginbt-style*/
+.loginbt{
+	display: block;
+	padding: 8px 20px !important;
+	border: 1px solid #fff;
+	background: rgba(255,255,255,0) !important;
+	font-size: 14px !important;
+	color: #fff;
+	line-height: 14px !important;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+.row + .row {
+	margin-top: 60px;
+}
+.row p {
+	padding: 10px 0 0 0;
+}
+/*.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+	background-color:#ffffff;
+	opacity:0.1;
+	color:#000000;}
+*/
+/*透明度*/
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+/*首页主题高度改变*/
+.carousel{
+	height:590px !important;
+}
+.carousel .item{
+	height:590px !important;
+}
+.carousel-inner > .item > img{
+	height:590px !important;
+}
+/*主题2参赛的按钮*/
+.gamebt{
+	display:block;
+	width:318px;
+	height:105px;
+	cursor:pointer;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-34px 0 0 -159px;
+}
+
+/*首页切换主题按钮变换：用直线*/
+.carousel-indicators li{
+	width:40px;
+	height:6px;
+	border-radius:0px;
+	margin:0px;
+	margin-right:10px !important;
+}
+.carousel-indicators .active{
+	width:40px;
+	height:6px;
+	margin:0px;
+	margin-right:10px !important;
+}

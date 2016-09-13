@@ -1,0 +1,96 @@
+#set($layout="layout/default_help.vm")
+#set($menu="login")
+
+#define($cssHtml)
+<link href="/libs/css/login.css" rel="stylesheet" type="text/css">
+#end
+<header class="quanti_header"></header>
+
+
+<div class="container">
+
+    <!-- 登陆框 start -->
+
+    <div class="login-wrap">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">用户登录</a></li>
+            <li role="presentation" class=""><a href="#regist" aria-controls="regist" role="tab" data-toggle="tab">用户注册</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="login">
+                <form action="/doLogin.html" method="post">
+                    #if($message == 1)
+                        <div class="control-group">
+                            <label class="control-label visible-ie8 visible-ie9">提示：</label>
+                            <div class="controls">
+                                <div class="input-icon left">
+                                    <p>很抱歉，您还没有登录或者登录失效，请重新登录</p>
+                                </div>
+                            </div>
+                        </div>
+                    #end
+                    <div class="form-group input-group">
+                        <!--<label for="emName">邮箱</label>-->
+                        <img class="inputimg" src="../libs/images/login/email.png" />
+                        <input type="email" class="form-control input-group-addon" name="emName" id="emName" placeholder="">
+                    </div>
+                    <div class="form-group input-group">
+                        <!--<label for="emPassword">密码</label>-->
+                        <img class="inputimg" src="../libs/images/login/password.png" />
+                        <input type="password" class="form-control input-group-addon" name="emPassword" id="emPassword" placeholder="">
+                    </div>
+                    <div class="btn-wrap">
+                        <button type="submit" class="btn">登录</button>
+                    </div>
+                    #if($!returnUrl)
+                        <input type="hidden" name="returnUrl" value="$!{stringEscapeUtils.escapeHtml($!returnUrl)}"/>
+                    #else
+                        <input type="hidden" name="returnUrl" value="/lab/lab_index.html"/>
+                    #end
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="regist">
+                <form action="/doRegister.html" method="post">
+                    #if($model == 2)
+                        <div class="control-group">
+                            <label class="control-label visible-ie8 visible-ie9">提示：</label>
+                            <div class="controls">
+                                <div class="input-icon left">
+                                    <p>很抱歉，注册失败</p>
+                                </div>
+                            </div>
+                        </div>
+                    #end
+                    <div class="form-group input-group">
+                        <!--<label for="emName1">邮箱</label>-->
+                        <img class="inputimg" src="../libs/images/login/email.png" />
+                        <input type="email" class="form-control input-group-addon" id="emName1" name="emName" placeholder="">
+                    </div>
+                    <div class="form-group input-group">
+                        <!--<label for="emPassword1">密码</label>-->
+                        <img class="inputimg" src="../libs/images/login/password.png" />
+                        <input type="password" class="form-control input-group-addon" id="emPassword1" name="emPassword" placeholder="">
+                    </div>
+                    <div class="form-group input-group">
+                        <!--<label for="remPassword1">重复密码</label>-->
+                        <img class="inputimg" src="../libs/images/login/pwyes.png" />
+                        <input type="password" class="form-control input-group-addon" id="remPassword1" name="remPassword" placeholder="">
+                    </div>
+                    <div class="btn-wrap">
+                        <button type="submit" class="btn">注册</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 登录框 end -->
+
+
+</div><!-- /.container -->
+

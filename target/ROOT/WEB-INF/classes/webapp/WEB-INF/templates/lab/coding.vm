@@ -1,0 +1,199 @@
+
+#define($cssHtml)
+
+<link href="/libs/css/lab/webnote.css" rel="stylesheet" />
+
+<style>
+.persent{
+	width:360px;
+	height:34px;
+	background:#e2e1e1;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position:fixed;
+	bottom:4px;
+	right:4px;
+	z-index:99998;
+	margin:0px;
+	line-height:38px;
+	padding:0px;
+	padding-left:15px;
+	cursor:pointer;
+	border-radius:3px;
+	}
+.persent li{
+	list-style:none;
+	float:left;
+	color:#6c7a81;
+	padding:0px;
+	margin:0px;
+	text-align:left;
+	margin-right:15px;
+	width:100px;}
+.cpu,.rom,.ram{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	vertical-align:middle;
+	margin-right:4px;}
+.cpu{
+	background:url(/libs/images/cpu/cpu_cpu.png) no-repeat;}
+.rom{
+	background:url(/libs/images/cpu/cpu_rom.png) no-repeat;}
+.ram{
+	background:url(/libs/images/cpu/cpu_ram.png) no-repeat;}
+.resource{
+	width:360px;
+	height:170px;
+	padding:15px;
+	position:fixed;
+	bottom:38px;
+	right:4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	z-index:99999;
+	background:#e2e1e1;
+	border-radius:3px;
+	}
+.resource h3{
+	font-size:14px;
+	width:340px;
+	font-weight:bold;
+	color:#101010;
+	margin:0px;
+	margin-bottom:20px;}
+.resource h3 a{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	float:right;
+	border:none;
+	outline:none;
+	background:url(/libs/images/cpu/cpu_close.png) no-repeat;
+	cursor:pointer;}
+.cpurow{
+	padding:0px;
+	margin:0px;
+	margin-bottom:15px;}
+.cpurow span{
+	display:inline-block;
+	text-align:left;
+	color:#101010;
+	font-size:14px;
+	vertical-align:middle;
+	}
+	
+.cpurow .progress{
+	width:160px;
+	display:inline-block;
+	margin-bottom:0px;
+	vertical-align:top;}
+</style>
+
+#end
+
+<div class="" id="specialstuff">
+	<input type="hidden" id="id" name="id" value="$!id">
+	<input type="hidden" id="user_account" name="user_account" value="$!webHelper.getLoginViewPin()">
+    <!--web编辑区域，左侧编辑代码区域-->
+    <div class="write" >
+        <div class="writeleft">
+            <div class="writetop">
+                <h5 class="writename">$!userStrategy.strategyName</h5>
+                <div class="tool">
+                    <a class="toolnormal tool01" onclick="save()">保存</a>
+                    <a class="toolnormal tool02" onclick="Run.run()">运行</a>
+                    ##<a class="toolnormal tool03">克隆</a>
+                    <a class="toolnormal tool04" id="fsbutton" >全屏</a>
+                </div>
+            </div>
+            <div class="writebottom">
+            	<input type="hidden" name="strategy_id" id="strategy_id" value="$!userStrategy.id" />
+                <pre id="editor">$!userStrategy.strategyText</pre>
+            </div>
+        </div>
+        <div class="writecenter" id="moveLine"></div>
+    </div>
+    <!--web编辑区域，右侧-->
+    <div class="run" >
+    	<!--新增运行进度条-->
+    	
+    	<div class="loading" style="display:none">
+    		<span class="loadword">运行中...</span>
+    		<div class="progress loadpro">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+			    0%
+			  </div>
+			</div>
+			<a class="toolnormal button" id="stop">停止</a>
+    	</div>
+    	
+    	 
+        <div class="tool">
+            <a class="toolnormal tool05" data-toggle="modal" data-target="#"><em>回测详情</em> </a>
+            #*<a class="toolnormal tool07" id="match"><em>参赛</em> </a>*#
+        </div>
+		
+		
+        <div class="runbottom">
+			<!--结果数值列举-->
+        	<ul class="result-value" id="result_desc">
+            </ul>
+        	<div class="dashboard"  id="result" >
+            </div>
+            <div class="diary">
+            	<span class="diary-title">日志</span>
+                <div class="diary-data" id="result_error" style="color:red"></div>
+                <div class="diary-data" id="result_log"></div>
+            </div>
+		</div>
+
+	</div>
+</div>
+
+<!--新增资源占用显示区域-开始-->
+<ul class="persent" >
+	<li><span class="cpu"></span>0.00%</li>
+    <li><span></span></li>
+    <li><span class="ram"></span>0MB</li>
+</ul>
+<div class="resource" style="display:none;">
+	<h3>资源分配状态：<a class="resource-close"></a></h3>
+    
+	<div class="cpurow">
+    	<span>CPU</span>
+    	<div class="progress">
+  			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+    			<span class="sr-only">0% Complete</span>
+ 		 	</div>
+		</div>
+        <span>0.00%</span>
+    </div>
+    <div  class="cpurow">
+    	<span>内存</span>
+    	<div class="progress">
+  			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+    			<span class="sr-only">0% Complete</span>
+ 		 	</div>
+		</div>
+        <span>0MB/0MB</span>
+    </div>
+</div>
+<!--CPU占用显示结束-->
+
+#parse("lab/coding_model.vm")
+
+#define($scriptHtml)
+
+	<!-- highstock -->
+	<script src="/libs/js/highstock-all.js"></script>
+	
+	<!-- load ace -->
+    <script src="/ace/js/ace.js"></script>
+    
+    <!-- load ace language tools -->
+    <script src="/ace/js/ext-language_tools.js"></script>
+    
+	<script src="/libs/js/lab/coding.js" type="text/javascript"></script>
+	<script src="/libs/js/lab/coding_model.js" type="text/javascript"></script>
+
+
+#end

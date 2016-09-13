@@ -1,0 +1,18 @@
+#set($layout="default_help.vm")
+#set($menu="help")
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  #parse("common/head.vm")
+
+  <body>
+
+	#parse("common/body_head.vm")
+
+	$screen_content
+    
+    #parse("common/body_footer.vm")
+
+  </body>
+</html>

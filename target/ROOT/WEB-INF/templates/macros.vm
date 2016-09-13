@@ -1,0 +1,6 @@
+##宏定义模板
+#macro (method $param)
+    #if($param != "")
+        $param
+    #end
+#end

@@ -1,0 +1,38 @@
+import numpy as np
+
+# 第一步：设置基本参数
+start = '{start}'						# 回测起始时间
+end   = '{end}'                         # 回测结束时间
+capital_base = {capital_base}			# 起始资金
+refresh_rate = {refresh_rate}			# 调仓频率
+benchmark = 'HS300'						# 策略参考标准
+freq = 'd'								# 策略类型，'d'表示日间策略使用日线回测
+
+# 第二步：选择主题，设置股票池
+universe = [{universe}]
+
+def initialize(account):
+    # 第三步：调整股票权重，权重列表序号与股票池列表序号对应
+    account.weight = [{weight}]
+    account.weightmap = dict(zip(universe, account.weight))
+
+def handle_data(account):
+    # 本策略将使用account的以下属性：
+    # account.referencePortfolioValue表示根据前收计算的当前持有证券市场价值与现金之和。
+    # account.universe表示当天，股票池中可以进行交易的证券池，剔除停牌退市等股票。
+    # account.referencePrice表示股票的参考价，一般使用的是上一日收盘价。
+    # account.valid_secpos字典，键为证券代码，值为虚拟账户中当前所持有该股票的数量。
+
+    c = account.referencePortfolioValue
+
+    # 计算调仓数量
+    change = {}
+    for stock in account.universe:
+        w = account.weightmap.get(stock, 0)
+        p = account.referencePrice[stock]
+        if p and not np.isnan(p):
+            change[stock] = int(c * w / p) - account.valid_secpos.get(stock, 0)
+
+    # 按先卖后买的顺序发出指令
+    for stock in sorted(change, key=change.get):
+        order(stock, change[stock])

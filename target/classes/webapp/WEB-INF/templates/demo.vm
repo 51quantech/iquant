@@ -1,0 +1,15 @@
+##set($layout="/layout/empty.vm")
+
+<div id="jCrumbs" class="breadCrumb module">
+    <ul>
+        <li>${stringUtils.trim("      首页         ")}#method("1")</li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        #cache("index" "head")
+        <h3 class="heading"></h3>
+    #end
+    </div>
+</div>
+

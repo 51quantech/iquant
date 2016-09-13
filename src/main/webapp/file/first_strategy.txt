@@ -1,0 +1,6 @@
+# 第一步：设置基本参数
+start = '{start}'						# 回测起始时间
+end   = '{end}'                         # 回测结束时间
+capital_base = {capital_base}			# 起始资金
+refresh_rate = {refresh_rate}			# 调仓频率
+benchmark = 'HS300'						# 策略参考标准

@@ -1,0 +1,170 @@
+#set($layout="layout/empty.vm")
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>量化首页</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/css/bootstrap-common.css" rel="stylesheet" type="text/css">
+    <link href="libs/css/index.css" rel="stylesheet" type="text/css">
+    <link href="libs/css/carousel.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .a{
+            border-bottom-style:solid;
+            border-bottom-width:1px;}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="/">QUANTI</a>-->
+            <a class="navbar-brand" href="/"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-nav-right">
+                <li class="active"><a href="/help/data.html">数据</a></li>
+                <li><a href="/lab/lab_index.html">我的策略</a></li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">帮助<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/help/guide.html">用户引导页</a>
+                        </li>
+                        <li>
+                            <a href="/help/api.html">常用API文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li class="divider"></li>-->
+                <li><a href="login.html" class="loginbt"><!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>-->登录</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<!-- Carousel ================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img class="first-slide" src="libs/images/top/index2.png" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <!--<p>最简单、高效的量化交易平台</p>-->
+                    <p><a class="btn btn-lg btn-gray" href="/lab/lab_index.html" role="button">编写我的策略</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="second-slide" src="libs/images/top/game2.png" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <a href="/help/top.html" class="gamebt">
+                        <img src="../libs/images/top/button.png" />
+                    </a>
+                    <!--<h1>QUANTI</h1>
+              <p>最简单、高效的量化交易平台</p>
+              <p><a class="btn btn-lg btn-gray" href="/lab/lab_index.html" role="button">编写我的策略</a></p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">上一页</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">下一页</span>
+    </a> -->
+</div>
+<!-- /.carousel -->
+
+<div class="container">
+    <!--网站优势一行-->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="libs/images/index_01.png" alt="..." class="img-circle">
+                </div>
+                <div class="col-md-9">
+
+                    <h2>强大稳定的研究平台</h2>
+                    <p>我们免费提供IPython研究平台，提供分钟级数据，性能更好</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="libs/images/index_02.png" alt="..." class="img-circle">
+                </div>
+                <div class="col-md-9">
+                    <h2>分钟级精准回测</h2>
+                    <p>我们免费提供沪深A股、ETF的历史交易数据，支持基于分钟级的精准回测</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--网站优势一行结束-->
+    <!--网站优二一行-->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="libs/images/index_03.png" alt="..." class="img-circle">
+                </div>
+                <div class="col-md-9">
+                    <h2>海量有效历史数据</h2>
+                    <p>我们免费提供沪深A股、港股、债券、基金、期货、期权、TEJ、ETF的历史交易数据</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="libs/images/index_04.png" alt="..." class="img-circle">
+                </div>
+                <div class="col-md-9">
+                    <h2>高度保障的安全性</h2>
+                    <p>采用Docker技术隔离，资源独立、安全性更高</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--网站优势二行结束-->
+</div><!-- /.container -->
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="libs/js/jquery-1.11.3.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="libs/js/bootstrap.min.js"></script>
+</body>
+</html>

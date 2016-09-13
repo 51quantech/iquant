@@ -1,0 +1,199 @@
+@charset "utf-8";
+/* CSS Document */
+/*a滑过不要下划线，鼠标手显示*/
+a,a:hover{
+	text-decoration: none;
+	cursor: pointer;
+}
+/*清除浮动*/
+.clear{
+	clear: both;
+}
+.container{
+	padding-bottom: 20px;
+}
+/*模块切换样式*/
+.nav-tabs{
+	border: none;
+	border-bottom: 2px solid #eaeaea;
+	margin-bottom: 24px;
+}
+.nav-tabs > li > a{
+	font-size: 14px;
+	bottom: -1px;
+	margin: 0px;
+	color: #444;
+	border: none;
+	border-radius: 0px;
+	border-bottom: 2px solid #eaeaea;
+}
+.nav-tabs > li > a:hover{
+	background-color: #fff;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	color: #054fa2;
+	border: none;
+	background: none !important;
+	border-bottom: 2px solid #0b58af;
+}
+/*我要发布按钮样式*/
+.btn-commu{
+	float: right;
+	margin-top: 4px;
+	border-radius: 2px;
+	color: #054fa2;
+	font-size: 12px;
+	border-color: #0b58af;
+}
+.argu-content{
+	width: 100%;
+}
+/*一个分享*/
+.argupart{
+	width: 100%;
+	border-bottom: 1px solid #d2d2d2;
+	font-size: 12px;
+	color: #999;
+	margin-bottom: 20px;
+}
+/*分享标题*/
+h4{
+	margin: 0px;
+	margin-bottom: 10px;
+	padding: 0px;
+}
+h4 a{
+	color: #054fa2;
+	font-weight: bold;
+}
+h4 a:hover{
+	color: #054fa2;
+}
+/*分享人介绍*/
+.person{
+	margin-bottom:8px;
+}
+.person a{
+	color: #222;
+	margin-right: 10px;
+}
+.person a:hover{
+	color: #444;
+}
+/*分享简介*/
+.argument{
+	display:block;
+	width: 100%;
+	background-color: #f9f9f9;
+	padding: 10px;
+	line-height: 20px;
+	color: #999;
+	margin-bottom: 8px;
+}
+.argument:hover{
+	color: #999;
+}
+/*互动按钮*/
+.actpart{
+	margin-bottom: 20px;
+	height: 18px;
+	font-size: 12px;
+}
+.action{
+	display: block;
+	float: left;
+	margin-right: 20px;
+	padding-left: 16px;
+	color: #999;
+}
+.focus{
+	background: url(/libs/images/community/focus.png) no-repeat left center;
+}
+.comment{
+	background: url(/libs/images/community/comment.png) no-repeat left center;
+}
+.like{
+	background: url(/libs/images/community/like.png) no-repeat left center;
+}
+/*总共的点赞人数*/
+.likenum{
+	padding: 15px;
+	padding-bottom: 0px;
+	margin: 0px;
+	text-align: left;
+	background-color: #fff;
+}
+/*右侧用户个人信息，热门分享，平台宣传语等*/
+/*外部边框容器*/
+.user-content{
+	width: 100%;
+	border: 1px solid #ececec;
+	padding: 0px;
+	margin-bottom: 30px;
+}
+.userpart{
+	padding: 15px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #f4f4f4;
+}
+/*右侧可点击列表*/
+.commu-list{
+	width: 100%;
+	padding: 15px;
+	margin: 0px;
+	list-style-type: circle;
+	list-style-position: inside;
+}
+.commu-list>li>a{
+	font-size: 12px;
+	color: #444;
+	line-height: 22px;
+}
+
+.commu-list>li>a>em{
+	font-style: normal;
+	color: #054fa2;
+	text-decoration: underline;
+}
+
+
+/*userpic*/
+.userpic{
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-color: #009900;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	margin-right: 6px;
+}
+.username{
+	float: left;
+	height: 50px;
+	margin: 0px;
+	padding: 0px;
+	margin-right: 10px;
+}
+.username a{
+	display: block;
+	color: #054fa2;
+	font-size: 14px;
+	fon-weight: normal;
+	text-align: left;
+	height: 24px;
+	margin-bottom: 8px;
+}
+.username span{
+	display: block;
+	color: #666;
+	font-size: 12px;
+	text-align: left;
+	vertical-align: bottom;
+}
+/*是否关注*/
+.focusbt{
+	vertical-align: middle;
+	float: right;
+	margin-top: 10px;
+}

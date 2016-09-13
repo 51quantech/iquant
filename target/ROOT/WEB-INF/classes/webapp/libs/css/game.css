@@ -1,0 +1,232 @@
+/*大赛单独页样式处理*/
+.list{
+	background:#fff;
+	margin-top:-20px;
+}
+
+/*修改排名样式*/
+.listimg{
+	width:100%;
+	background: url(/libs/images/top/gamebanner.png) no-repeat center center;
+	height:528px;
+	padding:0px;
+	margin:0px;
+}
+/*大赛界面引导导航nav*/
+.gamewrap{
+	background: url(/libs/images/top/gamenav_bg.png) repeat-x;
+	height: 121px;
+	margin-bottom: 30px;
+}
+.gamenav{
+	width: 1000px;
+	margin: 6px auto 30px;
+}
+
+/*6个参赛须知*/
+ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+.gameul{
+	width: 900px;
+	heigth: 83px;
+	list-style: none;
+	margin: 0px;
+	float: left;
+}
+.gameul>li{
+	background: url(/libs/images/top/gnavul_bg.png) no-repeat left center;
+	width: 145px;
+	border: none;
+	height: 83px;
+	text-align: center;
+	display: inline-block;
+}
+.gameul>li>a{
+	font-size: 20px;
+	line-height: 83px;
+	color: #222;
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+}
+.gameul>li>a:hover,.gameul>li>a:active{
+	color: #023fc0;
+	background: url(/libs/images/top/gnavul_active.png) no-repeat left bottom;
+}
+.gameul>li>a.active{
+	color: #023fc0;
+	background: url(/libs/images/top/gnavul_active.png) no-repeat left bottom;
+}
+/*往期排行*/
+.focusbt{
+	vertical-align: middle;
+	float: left;
+	margin-top: 24px;
+	background: #3f99f6;
+	border-color: #3f99f6;
+	color: #fff;
+}
+
+
+/*大赛各流程标题*/
+.gamename{
+	height: 44px;
+	background: url(/libs/images/top/gbt_bg.png) repeat-x center;
+	border-left: 4px solid #2070e5;
+	padding: 0px;
+	clear: both;
+}
+.gamename>h3{
+	background: #fff;
+	font-size: 28px;
+	color: #4a4a4a;
+	text-align: left;
+	padding: 0px;
+	padding-left: 10px;
+	margin: 0px;
+	width: 130px;
+}
+.gamename>span{
+	font-family: Arial;
+	font-size: 12px;
+	padding-left: 10px;
+	color: #aaa;
+	margin: 0px;
+	line-height: 12px;
+}
+/*参赛细节*/
+.gametext{
+	width: 960px;
+	margin:0px auto 40px;
+}
+/*大赛中用到的图片居中处理*/
+.gametext img{
+	display: block;
+	margin: 0 auto;
+}
+
+/*内页参赛的按钮*/
+.gamebt{
+	display:block;
+	width:318px;
+	height:105px;
+	cursor:pointer;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:100px 0 0 -159px;
+}
+
+.table{
+	margin:0 auto;
+}
+.btn-orange,.btn-blue{
+	display:inline-block;
+	padding:6px 20px;
+	font-size:14px;
+}
+.btn-orange{
+	border:1px solid #f37027;
+	color:#f37027;
+	background:#fff;
+}
+.btn-blue{
+	border:1px solid #295289;
+	color:#295289;
+	background:#fff;
+}
+
+/*收益，回测tab切换*/
+#menu{
+	width:1000px;  
+	margin:80px auto;
+	border-top:1px solid #0363c9;}
+#menu #nav {
+	position:relative; 
+	height:60px; top:50%; 
+	margin-top:-30px;
+	width:250px;
+	padding:0;
+	list-style:none; 
+	line-height:27px;  
+	left:50%; 
+	margin-left:-125px;}
+#menu #nav li {
+	float:left;
+	width:100px; 
+	position:absolute; 
+	line-height:46px;}
+#menu #nav .li1{
+	left:0px; 
+	background:#fff;}
+#menu #nav .li2{
+	left:150px; 
+	background:#fff;}
+#menu #nav li a {
+	display:block;
+	height:59px;
+	text-decoration:none;
+	padding:0px;
+	border:1px solid #fff; 
+	border-bottom:none; 
+	text-align:center; 
+	color:#333; 
+	font-size:16px;}
+#menu_con{ 
+	width:100%; 
+	height:135px; 
+	border-top:none}
+.tag{ 
+	padding:10px; 
+	overflow:hidden; 
+	width:100%;
+	margin:0 auto;}
+.tag td:first-child{
+	text-indent:8px;
+}
+.selected{
+	background:#fff; 
+	color:#fff;
+	border:1px solid #0363c9 !important; 
+	border-bottom:none !important; 
+	height:30px !important;}
+.selected .leftpoint{
+	visibility:hidden;}
+.selected .rightpoint{
+	visibility:hidden;}
+.leftpoint{
+	width:0px;
+	border:2px solid #0363c9;
+	height:0px;
+	position:relative;
+	left:6px;
+	top:26px;}
+.rightpoint{
+	width:0px;
+	border:2px solid #0363c9;
+	height:0px;
+	position:relative;
+	left:90px;
+	top:-24px;}
+	
+/*收益，回测TAB结束*/
+/*列表排名TOP3*/
+.no1,.no2,.no3{
+	line-height:32px;
+	color:#fff;
+	}
+.no1{
+	background:url(/libs/images/top/no1.png) no-repeat left center;
+	}
+.no2{
+	background:url(/libs/images/top/no2.png) no-repeat left center;
+	}
+.no3{
+	background:url(/libs/images/top/no3.png) no-repeat left center;
+	}
+.clear{
+	clear: both;
+}
