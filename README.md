@@ -41,12 +41,13 @@ maven命令：mvn clean package -Dmaven.test.skip=true -Pdevelopment</br>
 
 ##CONTACTS
 
-Mailing-list: service@51quantech.com
-Google Group:
+-Mailing-list: service@51quantech.com
 
-Sending a mail to the address above will subcribe to the mailing list. The subject and message do not matter.
+-Group:
+
+-Sending a mail to the address above will subcribe to the mailing list. The subject and message do not matter.
 
 
 ##License
 
-iquantech is under the GNU GENERAL PUBLIC LICENSE. See the LICENSE file for details.
+-iquant is under the GNU GENERAL PUBLIC LICENSE. See the LICENSE file for details.
