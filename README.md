@@ -39,7 +39,7 @@ maven命令：mvn clean package -Dmaven.test.skip=true -Pdevelopment</br>
 - 将编译后的ROOT.war放入tomcat的webapp下（删除tomcat原来的ROOT目录）
 - 运行项目需要登陆，在数据库的user表中，增加一个用户名和密码，用来登陆系统
 
-CONTACTS
+##CONTACTS
 
 Mailing-list: service@51quantech.com
 Google Group:
@@ -47,6 +47,6 @@ Google Group:
 Sending a mail to the address above will subcribe to the mailing list. The subject and message do not matter.
 
 
-License
+##License
 
-iquantech is under the GNU GENERAL PUBLIC LICENSE. See the <a herf='https://github.com/51quantech/iquant/blob/master/LICENSE'>LICENSE</a> file for details.
+iquantech is under the GNU GENERAL PUBLIC LICENSE. See the LICENSE file for details.
