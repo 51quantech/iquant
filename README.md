@@ -50,4 +50,4 @@ maven命令：mvn clean package -Dmaven.test.skip=true -Pdevelopment</br>
 
 ##License
 
--iquant is under the GNU GENERAL PUBLIC LICENSE. See the LICENSE file for details.
+-iquant is under the Apache License Version 2.0, January 2004 LICENSE. See the LICENSE file for details.
