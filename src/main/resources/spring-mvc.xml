@@ -65,10 +65,10 @@
     </bean>
 
 	<!-- 模板信息设置 -->
-	<bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-		<property name="resourceLoaderPath"  value="/WEB-INF/templates" /><!-- 設置模板放置位置  -->
-		<property name="configLocation" value="classpath:velocity.properties" /><!-- 加载的配置文件路径  -->
-	</bean>
+    <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath"  value="/WEB-INF/templates/" /><!-- 設置模板放置位置  -->
+        <property name="configLocation" value="classpath:velocity.properties" /><!-- 加载的配置文件路径  -->
+    </bean>
 
     <!-- velocity layout 视图解析器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
