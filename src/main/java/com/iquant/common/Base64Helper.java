@@ -245,14 +245,4 @@ public class Base64Helper {
         return bytes;
     }
 
-    public static void main(String[] args) {
-        try {
-            System.out.println(Base64Helper.encode("yonggangli@sohu-inc.com".getBytes()));
-            System.out.println(new String(Base64Helper.decode("eW9uZ2dhbmdsaUBzb2h1LWluYy5jb20_")));
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
 }

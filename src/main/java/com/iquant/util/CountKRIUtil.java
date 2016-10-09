@@ -653,12 +653,4 @@ public class CountKRIUtil {
 		return data;
 	}
 	
-	public static void main(String[] args) {
-		String s = "aaa";
-		String ss = s.replaceAll("a", "b");
-		System.out.println(s);
-		System.out.println(ss);
-		
-	}
-
 }

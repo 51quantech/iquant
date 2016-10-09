@@ -193,8 +193,4 @@ public class TelWebSocketHandler extends TextWebSocketHandler {
         return false;
     }
 
-    public static void main(String[] args) {
-        // RemoteShellTool remoteShellTool = new RemoteShellTool("","");
-    }
-
 }
